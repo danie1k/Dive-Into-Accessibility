@@ -1,0 +1,56 @@
+/* moje poprawki i dodatki */
+
+.tlumacz
+{
+  border: 1px solid #000;
+  padding: 0.5em;
+  background-color: #eee;
+}
+
+#main .inner p, #main .inner li
+{
+  text-align: justify;
+}
+code
+{
+  text-align: left;
+}
+address {
+  font-size: 90%;  
+}
+.history {
+  font-size: 90%;
+}
+dl.history dd {
+  margin: 0 0 0 1em;
+}
+
+
+/* poni¿ej orygina³ */
+
+/*
+Dive Into Accessibility common stylesheet (shared by all media types)
+copyright (c) 2002, Mark Pilgrim (f8dy@diveintomark.org)
+GPL-licensed
+*/
+
+.divider, .invisibletitle, a.skip {
+  display: none;
+}
+
+cite {
+  font-style: normal;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+address {
+  font-style: normal;
+}
+
+code {
+  font-family: monospace;
+}
+

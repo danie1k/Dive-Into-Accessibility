@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 11: Przeskakiwanie menu strony</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_10.html" title="Dzień 10: Główna treść jako pierwsza" />
+<link rel="next" href="day_12.html" title="Dzień 12: Bezpieczne użycie kolorów" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_11.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 11: Przeskakiwanie menu strony</h2>
+<p class="firstparagraph">Jeśli nie udało Ci się przerobić swoich stron tak, aby <a title="Dzień 10: Główna treść jako pierwsza" href="day_10.html">prezentować najpierw główną zawartość</a>, możesz pójść na pewien kompromis: zrób dodatkowy link do przeskoczenia menu. To nie jest idealne rozwiązanie (lepiej żeby główna treść strony pokazywała się jako pierwsza) ale jest akceptowalne i używane na wielu stronach.</p>
+<p>Link do "przeskoczenia" menu, prowadzący od razu do głównej treści, jest zwykłym tagiem <code class="sgmltag">&lt;a&gt;</code> jak każdy inny link, ale dzięki odpowiedniemu ustawieniu stylów <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> jest niewidoczny w przeglądarkach graficznych. Taki link nie wpływa na układ strony - jakby go w ogóle nie było.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_5.html">Marek</a> skorzysta.  Kiedy odwiedza Twoją stronę, <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> pokaże ten link (ponieważ nie obsługuje stylów <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>) i to umożliwi Markowi przeskoczenie od razu do głównej treści strony. Zobacz <a href="day_10.html">Dzień 10: Główna treść jako pierwsza</a>, gdzie opisano dlaczego to jest tak bardzo istotne.</li>
+<li><a href="day_1.html">Jadzia</a> skorzysta.  Kiedy odwiedzi Twoją stronę, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> przeczyta ten link co umożliwi jej przeskoczenie całego menu i przejście od razu do głównej treści.</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Przede wszystkim użyj narzędzia <a href="http://www.delorie.com/web/lynxview.html" lang="en">Lynx Viewer</a> lub programu <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> aby sprawdzić czy na Twojej stronie linki nawigacyjne i menu są prezentowane przed główną treścią. Jeżeli główna treść strony jest pierwsza, to ta wskazówka Ciebie nie dotyczy - masz dzień wolny.</p>
+<p>Następnie zdefiniuj regułę <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> dla linków przeskakujących menu tak, aby były niewidoczne w przeglądarkach graficznych. Jeżeli masz zewnętrzny plik ze stylami, umieść tą regułę na jego końcu. (Jeżeli masz wiele zewnętrznych plików ze stylami, umieść tą regułę w pliku zgodnym z Netscape 4.)  Jeżeli masz style zdefiniowane w tagu <code class="sgmltag">&lt;style&gt;</code> w szablonie strony, dodaj tą regułę na początku, zaraz za tagiem <code class="sgmltag">&lt;style&gt;</code>.</p>
+<blockquote>
+<pre><code class="sgmltag">.skiplink {display:none}</code></pre>
+</blockquote>
+<p>Teraz wstaw link do przeskakiwania menu zaraz za nagłówkiem Twojej strony.</p>
+<ul>
+<li><strong>blog.pl</strong>: trudno jednoznacznie określić gdzie jest to miejsce w Twoim szablonie. Poszukaj kodu wstawiającego nagłówek, tytuł czy nazwę bloga - prawdopodobnie będzie to linia zawierająca zmienną <code>{ksywa}</code>. Na pewno musisz wybrać miejsce <em>przed</em> linkiem do księgi gości oraz zmiennymi <code>{linki}</code> i <code>{archiwum}</code>.</li>
+<li><strong>niByLog</strong>: miejsce wstawienia tego linku zależy od tego co masz umieszczone na stronie głównej przed wywołaniem skryptu niByLoga oraz w szablonie nagłówka; na pewno musi to być miejsce <em>po</em> nagłówku strony a <em>przed</em> menu - albo na stronie głównej albo w szablonie nagłówka bloga.</li>
+<li><strong lang="en">Movable Type</strong>: za fragmentem zawierającym <code>&lt;$MTBlogTitle$&gt;</code> i <code>&lt;$MTBlogDescription$&gt;</code>.</li>
+<li><strong lang="en">Greymatter</strong>: nie ma określonej zmiennej w szablonie wstawiającej tytuł; poszukaj nazwy bloga.</li>
+<li><strong>Radio</strong>: za <code>&lt;%siteName%&gt;</code> i <code>&lt;%description%&gt;</code>.</li>
+<li><strong>Manila</strong>: za <code>{homePageLink (siteName)}</code> i <code>{tagLine}</code>.</li>
+<li><strong lang="en">Blogger</strong>: za <code>&lt;$BlogTitle$&gt;</code>.</li>
+</ul>
+<p>Zaraz za tym wstaw następujący link:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a class="skiplink" href="#startcontent"&gt;Przeskocz menu&lt;/a&gt;</code></p>
+</blockquote>
+<p>Następnie trzeba wstawić tag wskazujący miejse docelowe dla powyższego linku. Powinien on się znaleźć na samym początku głównej treści Twojej strony, to znaczy tuż przed pierwszym wpisem.</p>
+<ul>
+<li><strong>blog.pl</strong>: tuż przed zmienną <code>{blog}</code>.</li>
+<li><strong>niByLog</strong>: na samym końcu szablonu nagłówka bloga.</li>
+<li><strong lang="en">Movable Type</strong>: przed <code>&lt;MTEntries&gt;</code>.</li>
+<li><strong lang="en">Greymatter</strong>: na szablonie "<span lang="en">Main Index Template</span>", przed <code>{{logbody}}</code>. Na szablonie "<span lang="en">Entry Page Templates</span>", przed <code>{{entrymainbody}}</code>.</li>
+<li><strong>Radio</strong>: przed <code>&lt;%bodytext%&gt;</code>.</li>
+<li><strong>Manila</strong>: przed <code>{bodytext}</code>.</li>
+<li><strong lang="en">Blogger</strong>: przed <code>&lt;Blogger&gt;</code>.</li>
+</ul>
+<p>Format taga docelowego zależy od wersji <acronym title="HyperText Markup Language" lang="en">HTML</acronym> jakiej używasz. <a href="day_6.html" title="Dzień 6: Wybór nagłówka DOCTYPE">Sprawdź swój nagłówek DOCTYPE</a>, a następnie użyj jednego z poniższych kodów:</p>
+<ol>
+<li><p>Jeżeli używasz któregokolwiek wariantu <code>HTML 4</code>, dopisz ten kod:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a name="startcontent"&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p>Jeżeli używasz któregokolwiek wariantu <code>XHTML 1.0</code>, użyj takiego kodu:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a name="startcontent" id="startcontent"&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p>Jeżeli używasz <code>XHTML 1.1</code>, użyj takiego kodu:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a id="startcontent"&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+<p>Pamiętaj, żeby taki link przeskakujący menu był na każdej stronie Twojej witryny; sprawdź wszystkie podstrony i szablony.</p>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_10.html">&lt;&lt; Dzień 10: Główna treść jako pierwsza</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_12.html">Dzień 12: Bezpieczne użycie kolorów &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_11.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 11: Przeskakiwanie menu strony</span></p></div>
+</body>
+</html>

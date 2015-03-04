@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 29: Przeszukiwanie wszystkiego</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_28.html" title="Dzień 28: Etykietowanie elementów formularza" />
+<link rel="next" href="day_30.html" title="Dzień 30: Tworzenie oświadczenia o dostępności" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_29.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 29: Przeszukiwanie wszystkiego</h2>
+<p class="firstparagraph">Każda strona internetowa potrzebuje mechanizmu przeszukiwania treści. Kropka.</p>
+<p>Zasady dobrego przeszukiwania strony:</p>
+<ol>
+<li>Umieść okienko wyszukiwania na każdej stronie, najlepiej gdzieś na górze, żeby było widocznie bez konieczności przewijania strony.</li>
+<li>Domyślnie przeszukuj wszystko. Jeśli masz opcje wyszukiwania we wpisach, komentarzach albo wszędzie (równocześnie we wpisach i w komentarzach), ustaw "wszędzie" jako wybór domyślny.</li>
+<li>Nie zagracaj okienka wyszukiwania zaawansowanymi opcjami, jak operatory logiczne, uwzględnianie wielkości liter czy wyrażenia regularne. Określ ustawienia domyślne takie jak w wyszukiwarce <a href="http://www.google.pl/" lang="en">Google</a> (szukaj wszystkich słów, szukaj całych słów, nie rozróżniaj wielkości liter, nie używaj wyrażeń regularnych), natomiast wszystkie opcje umieść na osobnej stronie "wyszukiwanie zaawansowane".</li>
+<li>Nadaj okienku wyszukiwania <a href="day_28.html" title="Dzień 28: Etykietowanie elementów formularza">odpowiednią etykietę</a> oraz <a href="day_15.html" title="Dzień 15: Definiowanie klawiszy skrótu">klawisz skrótu</a>. Zalecam <code>accesskey="4"</code>.  (Uwaga: Dla zachowania maksymalnej kompatybilności z różnymi przeglądarkami najlepiej zdefiniować atrybut <code>accesskey</code> dla taga <code>&lt;label&gt;</code>, a nie dla <code>&lt;input&gt;</code>. Zobacz przykłady poniżej.)</li>
+</ol>
+<h3>Kto na tym skorzysta?</h3>
+<p><a href="day_1.html">Jadzia</a>, <a href="day_2.html">Michał</a>, <a href="day_3.html">Bill</a>, <a href="day_4.html">Julia</a>, <a href="day_5.html">Marek</a> i właściwie wszyscy inni na świecie skorzystają z dobrze wykonanego przeszukiwania strony. Zwłaszcza na blogu lub stronie z newsami, gdzie zawartość jest zorganizowana przede wszystkim chronologicznie. Bardzo frustrująca jest sytuacja gdy nie można znaleźć jakiejś informacji tylko dlatego, że zeszła już ze strony głównej. Co prawda <span lang="en">Google</span> posiada mechanizm przeszukiwania tylko jednego określonego serwisu (składnia zapytania: "<span lang="en">site:domainname.com</span>"), jednak bardzo niewielu ludzi o tym wie, a ponadto <span lang="en">Google</span> nie odwiedza Twoich stron codziennie, więc jego bazy nie zawierają najnowszych wpisów. Dlatego najlepiej stwórz własny mechanizm przeszukiwania.</p>
+<h3>Jak to zrobić?</h3>
+<ul>
+<li><p><strong>niByLog</strong> ma wbudowany mechanizm przeszukiwania wpisów. Musisz tylko na swojej stronie umieścić formularz udostępniający okienko wyszukiwania, np. tak:</p>
+<blockquote>
+<p><code>&lt;form action="index.php" method="post"&gt;<br />
+&lt;label for="query" accesskey="4"&gt;Przeszukaj wpisy:&lt;/label&gt;<br />
+&lt;input type="text" name="query" id="query" size="20"&gt;<br />
+&lt;input type="submit" value="Szukaj"&gt;<br />
+&lt;/form&gt;</code></p>
+</blockquote>
+<p>Zamiast <code>index.php</code> wstaw adres Twojej strony z blogiem, jeżeli nazywa się inaczej.</p>
+</li>
+<!-- original
+<li><p><strong lang="en">Movable Type</strong> users can try the <a href="http://www.jayallen.org/mt-search/">MT-Search</a> plug-in.  I am using this on an upcoming <acronym title="Movable Type">MT</acronym>-powered site.  I tried it on my main weblog (900+ entries) and it was fairly slow, but it seems to work well with smaller sites.  It is no longer being actively developed, but it works well, even with the latest version of Movable Type.  (Note: if you're using the MySQL version of Movable Type 2.2, <a href="http://philringnalda.com/archives/002257.php">you need to tweak mt-search.cgi slightly</a>.)</p></li>
+-->
+<li><p><strong lang="en">Movable Type</strong> również posiada wbudowany mechanizm przeszukiwania wpisów (wcześniej dostępny w postaci plugina <span lang="en">MT-Search</span>). Standardowy formularz wyszukiwarki posiada już wystarczające elementy dostępności i wygląda nastepująco:</p>
+<blockquote>
+<p><code>&lt;form method="get" action="&lt;$MTCGIPath$&gt;&lt;$MTSearchScript$&gt;"&gt;<br />
+&lt;label for="search" accesskey="4"&gt;Search this site:&lt;/label&gt;<br />
+&lt;input id="search" name="search" size="20" /&gt;<br />
+&lt;input type="submit" value="Search" /&gt;<br />
+&lt;/form&gt;</code></p>
+</blockquote>
+<p>Przeszukiwanie wpisów w <acronym title="Movable Type" lang="en">MT</acronym> może być dużo bardziej rozbudowane - więcej szczegółów w <a href="http://www.movabletype.org/docs/mtmanual_public.html" title="Movable Type User Manual: PUBLIC SEARCH" lang="en"><span lang="pl">dokumentacji użytkownika <span lang="en">Movable Type</span></span></a>.</p>
+</li>
+<li><p><strong lang="en">Greymatter</strong> ma wbudowany mechanizm przeszukiwania wpisów, jednak trzeba trochę zmienić szablon i dodać <code>accesskey</code>. Otwórz szablon "<span lang="en">Search Form Template</span>" i zmień kod:</p>
+<blockquote>
+<p><code>&lt;FORM ACTION="{{cgiwebpath}}/gm-comments.cgi" METHOD=POST&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="gmsearch" SIZE=20&gt;<br />
+&lt;INPUT TYPE=SUBMIT VALUE="Search"&gt;<br />
+&lt;/FORM&gt;</code></p>
+</blockquote>
+<p>na taki:</p>
+<blockquote>
+<p><code>&lt;FORM ACTION="{{cgiwebpath}}/gm-comments.cgi" METHOD=POST&gt;<br />
+<strong>&lt;label for="gmsearch" accesskey="4"&gt;Search for:&lt;/label&gt;</strong><br />
+&lt;INPUT TYPE=TEXT <strong>id="gmsearch"</strong> NAME="gmsearch" SIZE=20&gt;<br />
+&lt;INPUT TYPE=SUBMIT VALUE="Search"&gt;<br />
+&lt;/FORM&gt;</code></p>
+</blockquote>
+</li>
+</ul>
+<p>W innych przypadkach możesz spróbować użyć zewnętrznego serwisu przeszukującego, który zaindeksuje zawartość Twojej strony i będzie podawał wyniki wyszukiwania. Do popularnych narzędzi tego typu należą <a href="http://www.atomz.com/search/trial_account.htm" lang="en">Atomz Express Search</a> oraz <a href="http://www.google.pl/services/free.html" lang="en">Google Free Web Search</a>. Oba są w pewnym stopniu konfigurowalne i dosyć szybkie, chociaż ich indeksy zawartości Twojej strony nie są zawsze całkowicie aktualne. Oba serwisy pozwalają dostosować wygląd okienka wyszukiwania na stronie; np. formularz wykorzystujący <span lang="en">Google Free Web Search</span> może wyglądać następująco (zauważ użycie taga <code>&lt;label&gt;</code> i atrybutu <code>accesskey</code>):</p>
+<blockquote>
+<p><code>&lt;form id="searchform" method="get" action="http://www.google.com/custom"&gt;<br />
+&lt;p id="searchlabel"&gt;<strong>&lt;label for="q" accesskey="4"&gt;Search this site:&lt;/label&gt;</strong>&lt;/p&gt;<br />
+&lt;p id="searchinput"&gt;&lt;input type="text" <strong>id="q"</strong> name="q" size="18" maxlength="255" value=" " /&gt;&lt;/p&gt;<br />
+&lt;p id="searchsubmit"&gt;&lt;input type="submit" value="Search" /&gt;<br />
+&lt;input type="hidden" name="cof" value="LW:116;L:http://diveintomark.org/images/eyes.jpg;LH:68;AH:left;GL:0;S:http://diveintomark.org/;AWFID:0d8ffcebe359c844;" /&gt;<br />
+&lt;input type="hidden" name="domains" value="diveintomark.org" /&gt;<br />
+&lt;input type="hidden" name="sitesearch" value="diveintomark.org" /&gt;<br />
+&lt;/p&gt;<br />
+&lt;/form&gt;</code></p>
+</blockquote>
+<p>Uwaga: nie możesz tak po prostu wkleić tego kodu na swoją stronę. Jeśli chcesz używać <span lang="en">Google Free Web Search</span>, musisz się zarejestrować i otrzymać własny kod dla pola <code>cof</code>.</p>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<!--
+<li><cite>Jay Allen</cite>: <a href="http://www.jayallen.org/mt-search/">MT-Search</a>, a search plug-in for Movable Type.</li>
+<li><cite>Phil Ringnalda</cite>: <a href="http://philringnalda.com/archives/002257.php">mt-search.cgi and MySQL</a>.  Important information getting MT-Search to work with Movable Type 2.2 and MySQL.</li>
+-->
+<li><a href="http://www.atomz.com/search/trial_account.htm" lang="en">Atomz Express Search</a>.</li>
+<li><a href="http://www.google.com/services/free.html" lang="en">Google Free Web Search</a>.</li>
+<li><cite lang="en">Blogger.com</cite>: <a href="http://publicmind.blogger.com/enduser/group.jsp?node=185" lang="en">How do I add a search engine to my blog?</a>  Blogger poleca <span lang="en">Atomz</span>, ale znajdziesz tam też linki do innych serwisów.</li>
+<li><cite lang="en">Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/20000109.html" lang="en">Is Navigation Useful?</a> Artykuł na temat nawigacji na stronach internetowych. Cytat: <q lang="en">Users often rely on search as their main hunting strategy</q>.</li>
+<li><cite lang="en">Jakob Nielsen</cite>: <a href="http://www.useit.com/alertbox/9707b.html" lang="en">Search Usability</a>. Artykuł sprzed sześciu lat, a nadal niewiarygodnie aktualny.</li>
+<li><cite>PHP.net</cite>: <a href="http://www.php.net/urlhowto.php" lang="en"><acronym title="Uniform Resource Locator" lang="en">URL</acronym> HOWTO</a>.  Na stronie php.net jest zaimplementowany najbardziej zadziwiający mechanizm przeszukiwania jaki kiedykolwiek widziałem. Oprócz standardowego formularza szukania, używają specjalnie przygotowanych stron błędu 404 (które w innych serwisach zazwyczaj pokazują po prostu komunikat "strona nie znaleziona") tak, aby inteligentnie przeszukać serwis na podstawie podanego adresu <acronym title="Uniform Resource Locator" lang="en">URL</acronym>. Zatem możesz po prostu bezpośrednio w adresie wpisać czego szukasz, np. jak wpiszesz <a href="http://www.php.net/phpinfo">www.php.net/phpinfo</a> w przeglądarce, to php.net przekieruje Cię do <a href="http://www.php.net/manual/en/function.phpinfo.php">strony dokumentacji zawierającej opis funkcji phpinfo</a>.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_28.html">&lt;&lt; Dzień 28: Etykietowanie elementów formularza</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_30.html">Dzień 30: Tworzenie oświadczenia o dostępności &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_29.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 29: Przeszukiwanie wszystkiego</span></p></div>
+</body>
+</html>

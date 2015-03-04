@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 19: Używanie prawdziwych nagłówków tabel</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_18.html" title="Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu" />
+<link rel="next" href="day_20.html" title="Dzień 20: Tworzenie streszczenia dla tabel" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_19.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 19: Używanie prawdziwych nagłówków tabel</h2>
+<p class="firstparagraph">Jeżeli na swojej stronie masz kalendarz, to powinien on być stworzony jako tabela w <acronym title="HyperText Markup Language" lang="en">HTML</acronym>. Było kilka prób tworzenia kalendarzy wyłącznie przy pomocy <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, ale to nieporozumienie; kalendarz to dane tabelaryczne i właśnie tak powinny być zapisane w <acronym title="HyperText Markup Language" lang="en">HTML</acronym>.</p>
+<p>Najistotniejszą rzeczą w tabeli są prawidłowe nagłówki kolumn danych. W przypadku kalendarza oznacza to konieczność oznaczenia dni tygodnia. Powinieneś zawsze tworzyć nagłówki dni tygodnia. Jeśli nie chcesz żeby były widoczne, możesz je ukryć za pomocą <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, ale powinny zawsze tam być, ponieważ programy udźwiękawiające używają ich aby pomóc niewidomym użytkownikom w nawigacji po tabeli.</p>
+<p>Problem z kalendarzem (i właściwie z dowolną inną tabelą danych, ale dzisiaj mówimy głównie o kalendarzu) polega na tym, że bardzo łatwo go używać kiedy widać całość, ale bardzo trudno, gdy widzisz tylko jeden dzień na raz. Wyobraź sobie, że masz na biurku kalendarz, w którym każda strona przedstawia jeden dzień, ale jest tam napisany tylko dzień miesiąca, nie ma dnia tygodnia. Strona po stronie: 1, 2, 3, 4, 5, 6, 7...  Dzisiaj jest 4 i akurat tak się składa, że wiem, iż to czwartek. Teraz przeskocz do przodu: 11, 12, 13.  Szybko: jaki dzień tygodnia będzie trzynastego? Strona takiego kalendarza Ci tego nie powie; musisz się orientować na własną rękę.</p>
+<p>Tak właśnie wygląda dla niewidomej osoby nawigacja po kalendarzu bez odpowiednich nagłówków. Dostajesz mnóstwo liczb, ale brak kontekstu tygodnia. Dodanie właściwych nagłówków do tabeli kalendarza umożliwia oprogramowaniu udźwiękawiającemu powiązanie nagłówka (dnia tygodnia) z danymi w komórce tabeli (dniem miesiąca) i odczytanie tego razem. "czwartek 4, czwartek 11, piątek 12, sobota 13." Aha, więc to będzie sobota.</p>
+<p>Zauważ, że powiedziałem <em>właściwych</em> nagłówków. Włożenie dni tygodnia w tagi <code class="sgmltag">&lt;td&gt;</code> pierwszego wiersza tabeli nie wystarcza; nagłówki dni muszą być w tagach <code class="sgmltag">&lt;th&gt;</code>. Większość szablonów blogów robi to źle, ale można to łatwo poprawić nie zmieniając w ogóle wyglądu kalendarza w przeglądarkach graficznych.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><p><a href="day_1.html">Jadzia</a> skorzysta.  Kiedy natrafi na Twój kalendarz, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> najpierw <a href="day_18.html">przeczyta jego tytuł</a>, następnie zakomunikuje nagłówki, a potem Jadzia może poruszać się po tabeli za pomocą klawiszy strzałek trzymając równocześnie naciśnięte <kbd>Control</kbd> + <kbd>ALT</kbd>. Kiedy przechodzi po komórkach tabeli, <span lang="en">JAWS</span> odczytuje nagłówek (w tym przypadku dzień tygodnia) i zawartość aktualnej komórki (dzień miesiąca).</p>
+<p>Wszystkie poważne programy udźwiękawiające umożliwiają podobną nawigację po tabelach. <a href="http://www-3.ibm.com/able/hpr.html" lang="en">Home Page Reader</a> umożliwia przełączenie się na tryb "<span lang="en">Table Navigation</span>" (<kbd>ALT+T</kbd>) tak, że dalsze poruszanie się w obrębie tabeli nie wymaga już dodatkowych klawiszy oprócz strzałek. <span lang="en">Home Page Reader</span> idzie nawet krok dalej - jak zobaczymy za chwilę, możesz zdefiniować tytuł dla każdego nagłówka (coś w rodzaju <a href="day_14.html" title="Dzień 14: Dodawanie tytułów do linków">tytułu dla linku</a>) i program będzie odczytywał ten tytuł zamiast tekstu w tagu nagłówka. To znaczy, że możesz w przeglądarkach wyświetlać dni tygodnia jako "Po", "Wt", "Śr", równocześnie nakazując programom udźwiękawiającym odczytywanie ich jako "Poniedziałek", "Wtorek", "Środa".  Nieźle.</p>
+</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Jeśli jeszcze tego nie zrobiłeś, upewnij się, że Twój kalendarz ma <a href="day_18.html" title="Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu">prawidłowy tytuł</a>. Tag <code>&lt;caption&gt;</code> musi być pierwszy zaraz po <code>&lt;table&gt;</code>, a wiersz z tagami <code>&lt;th&gt;</code> powinien następować zaraz za tym.</p>
+<ul>
+<li><p><strong>niByLog</strong> standardowo nie posiada archiwum wpisów w postaci kalendarza. Stworzony przeze mnie <a href="http://mimas.ceti.pl/plugins/" title="strona z pluginami dla niByLoga">plugin do niByLoga</a> (niByLog.Kalendarz) począwszy od wersji 1.4.0 generuje poprawne nagłówki.</p></li>
+<li><p>W <strong lang="en">Movable Type</strong> odszukaj kalendarz w szablonie "<span lang="en">Main Index Template</span>" (poszukaj ciągu "calendarhead" aby znaleźć to miejsce). Jeśli używasz starszych szablonów, to zaraz za tagiem <code>&lt;caption&gt;</code> zobaczysz dni tygodnia zdefiniowane następująco:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;tr&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Mon&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Tue&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Wed&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Thu&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Fri&lt;/span&gt;&lt;/td&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sat&lt;/span&gt;&lt;/td&gt;<br />
+&lt;/tr&gt;</code></p>
+</blockquote>
+<p>Jeśli masz taki kod, zamień go na następujący:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;tr&gt;<br />
+&lt;<strong>th abbr="Sunday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Monday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Mon&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Tuesday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Tue&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Wednesday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Wed&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Thursday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Thu&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Friday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Fri&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;<strong>th abbr="Saturday"</strong> align="center"&gt;&lt;span class="calendar"&gt;Sat&lt;/span&gt;<strong>&lt;/th&gt;</strong><br />
+&lt;/tr&gt;</code></p>
+</blockquote>
+<p>Lub z odpowiednim tłumaczeniem na polski. Dwie rzeczy są tutaj ważne: wszystkie tagi <code class="sgmltag">&lt;td&gt;</code> zamieniamy na <code class="sgmltag">&lt;th&gt;</code> oraz każdemu z nich dodajemy atrybut "<code>abbr</code>" określające pełną nazwę dnia tygodnia. (Atrybut "<code>abbr</code>" może służyć do dwóch rzeczy: dla bardzo długich nagłówków tabel podaje wersję skróconą, a dla bardzo krótkich nagłówków - pełne rozwinięcie, tak jak w naszym przypadku.)</p>
+</li>
+<li><p>W <strong>Radio</strong> procedura wygląda podobnie jak to, co zrobiliśmy wczoraj dodając tag <code>caption</code>.</p>
+<ol>
+<li><p>Otwórz właściwą aplikację Radio klikając prawym klawiszem myszy ikonkę Radio w trayu i wybierając "<span lang="en">Open Radio</span>".</p></li>
+<li><p>W menu "<span lang="en">Tools</span>" wybierz "<span lang="en">Developers</span>", "<span lang="en">Jump...</span>" (<kbd>Control+J</kbd>) i przejdź do "system.verbs.builtins.radio.weblog.drawCalendar" (bez cudzysłowu).</p></li>
+<li><p>Następnie w menu "<span lang="en">Edit</span>", "<span lang="en">Find and Replace</span>", "<span lang="en">Find...</span>" (<kbd>Control+F</kbd>) poszukaj "addDayName". W ten sposób znajdziesz funkcję <tt>addDayName</tt>; po jej podwójnym kliknięciu zobaczysz kod, który powinien wyglądać tak:</p>
+<blockquote>
+<p><code>on addDayName (name)<br />
+&nbsp;&nbsp;add ("&lt;td width=\"19\" height=\"10\" align=\"center\" style=\"font-size:9px\"&gt;" + name + "&lt;/td&gt;")</code></p>
+</blockquote>
+</li>
+<li><p>Zmień to na:</p>
+<blockquote>
+<p><code>on addDayName (name<strong>, fullname</strong>)<br />
+&nbsp;&nbsp;add ("<strong>&lt;th abbr=\"" + fullname + "\"</strong> width=\"19\" height=\"10\" align=\"center\" style=\"font-size:9px\"&gt;" + name + "<strong>&lt;/th&gt;</strong>")</code></p>
+</blockquote>
+</li>
+<li><p>Następnie kliknij linię "<code>for i = 1 to 7</code>" poniżej i zobaczysz kod:</p>
+<blockquote>
+<p><code>for i = 1 to 7<br />
+&nbsp;&nbsp;addDayName (radio.string.getLocalizedString ("dayOfWeekShort." + i))</code></p>
+</blockquote>
+</li>
+<li><p>Zmień ten kod na:</p>
+<blockquote>
+<p><code>for i = 1 to 7<br />
+&nbsp;&nbsp;addDayName (radio.string.getLocalizedString ("dayOfWeekShort." + i)<strong>, radio.string.getLocalizedString ("dayOfWeek." + i)</strong>)</code></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3>Bardzo ważna uwaga na temat tabelek pozycjonujących</h3>
+<p>Tabele używane do ustalenia układu elementów na stronie (takie, które nie prezentują danych tabelarycznych tylko wyznaczają kolumny tekstu itp.) podlegają zupełnie innym zasadom. <em>Nie</em> używaj tagów <code class="sgmltag">&lt;th&gt;</code> dla takich tabel. Poza zapewnieniem <a href="day_10.html" title="Dzień 10: Główna treść jako pierwsza">aby główna treść strony była przedstawiana jako pierwsza</a>, nie trzeba wiele robić, aby uczynić je dostępnymi. Jeszcze przedyskutujemy jeden mały szczegół jutro.</p>
+<h3>Zobacz także</h3>
+<p>Jeżeli musisz zbudować tabelę bardziej skomplikowaną niż kalendarz (np. z wieloma poziomami nagłówków), musisz sobie radzić sam(a). Oto kilka ciekawych miejsc na początek (strony w języku angielskim):</p>
+<ul>
+<li><cite title="The Making Connections Unit" lang="en">Jim Byrne</cite>: <a href="http://www.mcu.org.uk/articles/tables.html">Table Manners</a>.</li>
+<li><cite><acronym title="Web Accessibility In Mind" lang="en">WebAIM</acronym></cite>: <a href="http://www.webaim.org/tutorials/tables" lang="en">Create tables that transform gracefully</a>.</li>
+<li><cite title="Idyll Mountain" lang="en">Kynn Bartlett</cite>: <a href="http://access.idyllmtn.com/tables/" lang="en">Understanding Accessible Table Markup</a>.</li>
+<li><cite lang="en">Stephen Ferg</cite>: <a href="http://www.ferg.org/section508/accessible_tables.html" lang="en">Techniques for Accessible HTML Tables</a> - bardzo obszerne omówienie technik tworzenia złożonych tabel z równoczesną dbałością o ich dostepność. Artykuł w ramach cyklu <a href="http://www.ferg.org/section508/" lang="en">Papers on Section 508 by Steve Ferg</a>.</li>
+<li><cite><acronym title="The Web Standards Project" lang="en">WaSP</acronym></cite>: <a href="http://www.webstandards.org/buzz/archive/2003_09.html#a000203"><span lang="en">A table,</span> <span lang="fr">s'il vous pla&icirc;t</span></a> - linki do innych stron na temat dostępnych tabel.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_18.html">&lt;&lt; Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_20.html">Dzień 20: Tworzenie streszczenia dla tabel &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_19.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 19: Używanie prawdziwych nagłówków tabel</span></p></div>
+</body>
+</html>

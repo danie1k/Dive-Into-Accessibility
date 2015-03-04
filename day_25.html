@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 25: Używanie prawdziwych linii (albo dobrze udawanych)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_24.html" title="Dzień 24: Odpowiedniki tekstowe dla map graficznych" />
+<link rel="next" href="day_26.html" title="Dzień 26: Używanie względnych rozmiarów czcionek" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_25.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 25: Używanie prawdziwych linii (albo dobrze udawanych)</h2>
+<p class="firstparagraph">Załóżmy, że chcesz mieć jakiś element oddzielający wpisy na Twoim blogu. Normalne linie poziome (tag <code class="sgmltag">&lt;hr&gt;</code>) są nudne i nieefektowne, więc używasz zamiast nich obrazka. To działa i łatwo może być zrobione bardziej dostępnym za pomocą odpowiedniego tekstu w atrybucie <code>alt</code>.</p>
+<p>Jednak można pójść dalej i używać prawdziwych linii poziomych, a za pomocą małego triku <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> wyświetlać je jako obrazek w nowoczesnych przeglądarkach. Stare przeglądarki oraz przeglądarki tekstowe zignorują ten styl <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> i pokażą normalną linię poziomą.  (Przeglądarki tekstowe zazwyczaj używają tutaj serii znaków podkreślenia lub myślników na całej szerokości strony.)</p>
+<p>Przykłady obu technik podamy za chwilę.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_1.html">Jadzia</a> skorzysta. <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">Jak widzieliśmy</a>, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> czyta nazwę pliku dla każdego obrazka bez atrybutu <code>alt</code>.</li>
+<li><a href="day_5.html">Marek</a> skorzysta. <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> pokazuje nazwę pliku dla każdego obrazka bez atrybutu <code>alt</code>. Natomiast gdy użyjesz prawdziwego taga linii poziomej to Lynx pokaże go jako serię znaków podkreślenia na całą szerokość ekranu.</li>
+<li><a href="day_2.html">Michał</a> skorzysta. <a href="http://links.sourceforge.net/">Links</a> <em>nie</em> pokazuje w ogóle obrazków bez atrybutu <code>alt</code>, więc Michał nie zobaczy Twojej poziomej linii. Tutaj też potrzebujemy tekstu <code>alt</code>, albo jeszcze lepiej prawdziwego taga <code>&lt;hr&gt;</code>, który zostanie przez Linksa pokazany jako seria myślników na szerokość całej strony.</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Jeżeli używasz obrazków do symulowania linii poziomej, to najłatwiejszym sposobem na uczynienie ich dostępnymi jest dodanie atrybutu <code>alt</code> do taga <code class="sgmltag">&lt;img&gt;</code>. Trzeba również dodać pusty atrybut <code>title</code>, aby przeglądarki graficzne nie pokazywały tekstu alternatywnego dla tego obrazka po najechaniu na niego kursorem myszki. Zatem jeśli masz np. taki kod:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img src="/images/fancyrule.gif" width="442" height="25"&gt;</code></p>
+</blockquote>
+<p>zamień go na taki:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img <strong>alt="--" title=""</strong> src="/images/fancyrule.gif" width="442" height="25"&gt;</code></p>
+</blockquote>
+<p>Nie przesadzaj i nie wpisuj 80 myślników jako tekst <code>alt</code>. Dwa lub trzy w zupełności wystarczą.</p>
+<h3>Jak to zrobić: sposób zaawansowany</h3>
+<p>Zaawansowana (i zalecana) metoda wykorzystuje faktyczny tag <code class="sgmltag">&lt;hr&gt;</code>. Jednak, ponieważ obsługa stylów dla taga <code class="sgmltag">&lt;hr&gt;</code> w przeglądarkach jest całkiem pochrzaniona, użyjemy pustego taga <code class="sgmltag">&lt;div&gt;</code> do wyświetlenia obrazka. Dopisz poniższy kod do sekcji <code>&lt;style&gt;</code> w swoim szablonie. (Jeżeli używasz zewnętrznych plików jak np. <code>style.css</code>, wpisz to gdzieś w tym pliku. Jeżeli używasz kilku arkuszy stylów, wpisz to w tym przeznaczonym dla Netscape 4.)</p>
+<blockquote>
+<pre><code>div.hr {display: none}
+/*/*/a{}
+div.hr {
+  display: block;
+  height: 25px;
+  background-image: url(/images/fancyrule.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 1em 0 1em 0;
+}
+hr {display:none}
+/* */</code></pre>
+</blockquote>
+<p>(W atrybut <code>height</code> wpisz wysokość swojego obrazka, a w <code>background-image</code> wpisz jego adres.)</p>
+<p>Następnie na swojej stronie lub w szablonach, w miejscu gdzie zechcesz wstawić poziomą linię, wpisz to:</p>
+<blockquote>
+<pre><code class="sgmltag">&lt;div class="hr"&gt;&lt;/div&gt;&lt;hr /&gt;</code></pre>
+</blockquote>
+<p>Rezultat:</p>
+<ul>
+<li>Wszystkie nowoczesne przeglądarki pokażą obrazek zamiast standardowej linii poziomej.</li>
+<li>Netscape 4 pokaże zwykłą linię poziomą.</li>
+<li>Przeglądarki tekstowe zawsze ignorują style <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, więc pokażą normalną linię (zazwyczaj utworzoną ze znaków podkreślenia albo z myślników).</li>
+</ul>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><a href="http://www.v2studio.com/k/css/n4hide/" lang="en">Hiding CSS From Netscape 4</a>. Ukrywanie stylów przed Netscape 4, bez użycia osobnych arkuszy <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>.  Opis techniki, która została użyta w zaawansowanym przykładzie powyżej.</li>
+<li><a href="http://ppewww.ph.gla.ac.uk/~flavell/www/hrstyle.html" lang="en">CSS1 and the Decorative HR</a>, jeśli czujesz w sobie wystarczająco dużo odwagi i chcesz zrobić ozdobne linie poziome za pomocą <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> w Netscape 4. Powodzenia.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_24.html">&lt;&lt; Dzień 24: Odpowiedniki tekstowe dla map graficznych</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_26.html">Dzień 26: Używanie względnych rozmiarów czcionek &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_25.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 25: Używanie prawdziwych linii (albo dobrze udawanych)</span></p></div>
+</body>
+</html>

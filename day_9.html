@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 9: Dodatkowa pomoc w nawigacji</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_8.html" title="Dzień 8: Tworzenie znaczących tytułów stron" />
+<link rel="next" href="day_10.html" title="Dzień 10: Główna treść jako pierwsza" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_9.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 9: Dodatkowa pomoc w nawigacji</h2>
+<p class="firstparagraph">Być może znasz tag <code class="sgmltag">&lt;link&gt;</code> używany do włączania zewnętrznych arkuszy stylów. Podobny kod może wskazywać położenie Twojej strony głównej oraz poprzedniej i następnej strony w sekwencji. Na przykład na archiwum dziennym możesz w ten sposób wskazać stronę z wpisami z dnia poprzedniego i następnego (jeżeli istnieją). Jeżeli prezentujesz pojedynczy wpis na stronie to możesz wskazać wpis następny i poprzedni.</p>
+<blockquote>
+<p><code>&lt;link rel="home" title="Strona główna" href="http://url/strony/głównej" /&gt;<br />
+&lt;link rel="prev" title="Tytuł poprzedniej strony" href="http://poprzednia/strona" /&gt;<br />
+&lt;link rel="next" title="Tytuł następnej strony" href="http://następna/strona" /&gt;<br /></code></p>
+</blockquote>
+<p>Te linki są niewidoczne w Internet Explorerze, ale mogą być z powodzeniem wykorzystane w innych przeglądarkach i mogą pomóc użytkownikom w nawigacji po stronie. Być może już masz kilka sposobów nawigacji, np. archiwa miesięczne, tygodniowe, link do wpisów aktualnych, kalendarz wpisów itp. Może nawet masz wyraźne linki do wpisów poprzednich i następnych. Wszystkie te linki są przydatne; zostaw je tak jak są, ale dodaj również powyższe.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><p><a href="day_5.html">Marek</a> skorzysta. <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a>, jego przeglądarka tekstowa, wyświetla dodatkowe linki nawigacyjne na górze strony używając tytułów podanych w atrybutach <code>title</code>. Na przykład czytając archiwum dzienne z dnia 18. czerwca na blogu z dobrze zdefiniowanymi linkami, Marek powinien zobaczyć coś takiego:</p>
+<blockquote>
+<pre><code>#<a href="day_9.html#" title="link do strony głównej">Start</a>&nbsp;<a href="day_9.html#" title="link do poprzedniej strony ze zdefiniowanym tytułem">17 czerwca 2002</a>&nbsp;<a href="day_9.html#" title="link do następnej strony ze zdefiniowanym tytułem">19 czerwca 2002</a></code></pre>
+</blockquote>
+<p>(Znak # na początku sygnalizuje Markowi, że ta linia to metadane a nie zawartość strony. Lynx umieszcza taki znak również na początku linii z <a href="day_8.html" title="Wstęp">tytułem strony</a>.)</p>
+</li>
+<li><p><a href="day_2.html">Michał</a> skorzysta. Jego przeglądarka tekstowa, <a href="http://links.sourceforge.net/">Links</a> (nie myl z <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a>, przeglądarką Marka) również wyświetla te specjalne linki nawigacyjne na początku strony. Wygląda to mniej więcej tak:</p>
+<blockquote>
+<pre><code>Link: <a href="day_9.html#" title="link do strony głównej jaki zdefiniowaliśmy">home</a>
+Link: <a href="day_9.html#" title="link do poprzedniej strony">prev</a>
+Link: <a href="day_9.html#" title="link do następnej strony ">next</a></code></pre>
+</blockquote>
+<p>Druga przeglądarka Michała, <a href="http://www.opera.com/">Opera</a> (począwszy od wersji 7), wyświetla linki nawigacji strony na specjalnym pasku nawigacyjnym ("<span lang="en">Navigation Bar</span>"). Typ linku ("home", "prev", "next") jest pokazany na przycisku. Ponadto nowe wersje Opery implementują technologię <a href="http://www.opera.com/support/search/supsearch.dml?index=608" title="Opera knowledge base - Fast Forward for quick access to next page and logins" lang="en">Fast Forward</a>, która udostępnia użytkownikowi dodatkowy przycisk prowadzący do <em>prawdopodobnej</em> następnej strony jaką będzie chciał zobaczyć. Jeżeli na stronie jest zdefiniowany odnośnik <code>&lt;link rel="next"&gt;</code> to właśnie on będzie użyty jako adres dla przycisku "<span lang="en">Fast Forward</span>".</p>
+</li>
+<li><p><a href="day_3.html">Bill</a> skorzysta. <a href="http://mozilla.org/">Mozilla</a> podobnie jak nowa Opera pokazuje dodatkowy pasek klawiszy nawigacyjnych. Typ linku jest pokazany na przycisku, oraz dodatkowo tytuł linku pojawia się jako tooltip.</p></li>
+<li><p>Użytkownicy przeglądarki <a href="http://www.icab.de/">iCab</a> skorzystają.  iCab wyświetla linki nawigacyjne w menu w pasku narzędzi używając tytułu zdefiniowanego przy każdym linku.</p></li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<ul>
+<li><p>W <strong lang="en">Movable Type</strong> dodaj następujące linie do szablonu "<span lang="en">Date-Based Archive</span>", zaraz za tagiem <code class="sgmltag">&lt;head&gt;</code>:</p>
+<blockquote>
+<p><code>&lt;link rel="home" href="&lt;$MTBlogURL$&gt;" title="Home" /&gt;<br />
+&lt;MTArchivePrevious&gt;<br />
+&lt;link rel="prev" href="&lt;$MTArchiveLink$&gt;" title="&lt;$MTArchiveTitle$&gt;" /&gt;<br />
+&lt;/MTArchivePrevious&gt;<br />
+&lt;MTArchiveNext&gt;<br />
+&lt;link rel="next" href="&lt;$MTArchiveLink$&gt;" title="&lt;$MTArchiveTitle$&gt;" /&gt;<br />
+&lt;/MTArchiveNext&gt;</code></p>
+</blockquote>
+<p>Natomiast w szablonie "<span lang="en">Individual Entry Archive</span>", również zaraz za <code class="sgmltag">&lt;head&gt;</code> dodaj:</p>
+<blockquote>
+<p><code>&lt;link rel="home" href="&lt;$MTBlogURL$&gt;" title="Home" /&gt;<br />
+&lt;MTEntryPrevious&gt;<br />
+&lt;link rel="prev" href="&lt;$MTEntryLink$&gt;" title="&lt;$MTEntryTitle$&gt;" /&gt;<br />
+&lt;/MTEntryPrevious&gt;<br />
+&lt;MTEntryNext&gt;<br />
+&lt;link rel="next" href="&lt;$MTEntryLink$&gt;" title="&lt;$MTEntryTitle$&gt;" /&gt;<br />
+&lt;/MTEntryNext&gt;</code></p>
+</blockquote>
+</li>
+<li><p>W systemie <strong lang="en">Greymatter</strong> dodaj poniższe tagi zaraz za <code class="sgmltag">&lt;head&gt;</code> w szablonach:</p>
+<blockquote>
+<p><code>&lt;link rel="home" title="Home" href="{{pageindexlink}}"&gt;<br />
+&lt;link rel="prev" title="{{previousentrysubject}}" href="{{entrieswebpath}}/{{previousentrynumberpadded}}.html"&gt;<br />
+&lt;link rel="next" title="{{nextentrysubject}}" href="{{entrieswebpath}}/{{nextentrynumberpadded}}.html"&gt;</code></p>
+</blockquote>
+</li>
+<li><p>W <strong>Radio</strong> cała sprawa jest uproszczona przez makra <span lang="en">Navigation Links For Radio</span> <a href="http://w3future.com/weblog/">Sjoerda Visschera</a>.</p>
+<ol>
+<li><p><a href="http://w3future.com/weblog/gems/navigationLinks.zip">Pobierz <span lang="en">Navigation Links macros</span></a>.</p></li>
+<li><p>Rozpakuj 4 pliki (<code class="filename">navigationLinks.txt</code>, <code class="filename">nextDayLink.txt</code>, <code class="filename">prevDayLink.txt</code>, <code class="filename">permalinkUrl.txt</code>) do katalogu <code class="filename">Macros</code>.  W standardowej instalacji dla Windows będzie to <code class="filename">C:\Program Files\Radio UserLand\Macros</code>.</p></li>
+<li><p>W głównym szablonie, zaraz za tagiem <code class="sgmltag">&lt;head&gt;</code> wstaw kod:</p>
+<blockquote>
+<p><code>&lt;%navigationLinks()%&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<p>Niestety nie znam satysfakcjonującego sposobu dodania linków do poprzedniej i następnej strony w systemach <strong>blog.pl</strong>, <strong>niByLog</strong>, <strong>Manila</strong> czy <strong lang="en">Blogger</strong>, ale możesz przynajmniej dać link do strony głównej umieszczając zaraz za tagiem <code class="sgmltag">&lt;head&gt;</code> kod:</p>
+<blockquote>
+<p><code>&lt;link rel="home" title="Początek" href="http://adres/strony/głównej"&gt;</code></p>
+</blockquote>
+<h3>Zobacz także</h3>
+<ul>
+<li><cite>Sjoerd Visscher</cite>: <a href="http://w3future.com/weblog/2002/06/20.html#a110" lang="en">Navigation links in your Radio Userland weblog</a>. (Strona w języku angielskim)</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_8.html">&lt;&lt; Dzień 8: Tworzenie znaczących tytułów stron</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_10.html">Dzień 10: Główna treść jako pierwsza &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_9.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 9: Dodatkowa pomoc w nawigacji</span></p></div>
+</body>
+</html>

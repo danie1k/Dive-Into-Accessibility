@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 6: Wybór nagłówka DOCTYPE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_5.html" title="Dzień 5: Marek" />
+<link rel="next" href="day_7.html" title="Dzień 7: Określenie używanego języka" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_6.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 6: Wybór nagłówka DOCTYPE</h2>
+<p class="firstparagraph">Rozpoczynasz zdania z dużej litery, rozpoczynaj więc strony <acronym title="HyperText Markup Language" lang="en">HTML</acronym> od nagłówka <code class="sgmltag">DOCTYPE</code> (określenia typu dokumentu).  To podstawowe zasady gramatyki.</p>
+<h3>Kto na tym skorzysta?</h3>
+<p>Przede wszystkim Ty (choć przeglądarki również - zobacz sekcja "Zobacz także" na dole). Wiele wskazówek w dalszej części będzie wymagało od Ciebie znajomości wersji standardu <acronym title="HyperText Markup Language" lang="en">HTML</acronym>, której używasz, ponieważ instrukcje dla różnych wersji będą się troszkę różnić. Sprawdź teraz jaki masz <code class="sgmltag">DOCTYPE</code> albo go dodaj jeżeli nie masz żadnego.</p>
+<h3>Jak to zrobić?</h3>
+<p>Możliwe, że już masz linię <code class="sgmltag">DOCTYPE</code>. Obejrzyj kod swojej strony - <code class="sgmltag">DOCTYPE</code> (jeżeli istnieje) znajduje się na samym początku, jeszcze przed tagiem <code class="sgmltag">&lt;html&gt;</code>.</p>
+<ul>
+<!--
+<li>Standardowe szablony <strong>niByLog</strong>a nie definiują początku strony <acronym title="HyperText Markup Language" lang="en">HTML</acronym> (ponieważ są przeznaczone do wklejenia w stronę już istniejącą) więc masz nagłówek <code class="sgmltag">DOCTYPE</code> tylko jeżeli już go tam dodałeś.</li>
+-->
+<li>Jeżeli używasz standardowych szablonów <strong>blog.pl</strong> prawdopodobnie nie masz nagłówka <code class="sgmltag">DOCTYPE</code> w ogóle. Mimo, że blog.pl posiada kilkanaście predefiniowanych szablonów, w momencie pisania tego tekstu (kwiecień 2003) <em>żaden</em> z nich nie zawiera linii <code class="sgmltag">DOCTYPE</code>.</li>
+<li>Jeżeli używasz domyślnego szablonu w <strong lang="en">Movable Type</strong>, nagłówek <code class="sgmltag">DOCTYPE</code> prawdopodobnie zawiera fragment "<code class="sgmltag">XHTML 1.0 Transitional</code>".  To jest w porządku.</li>
+<li>Jeżeli używasz predefiniowanych szablonów w  <strong>Radio Userland</strong>, <strong>Manili</strong> lub <strong lang="en">Bloggerze</strong>, Twój <code class="sgmltag">DOCTYPE</code> prawdopodobnie zawiera fragment "<code class="sgmltag">HTML 4.01 Transitional</code>". To również jest ok.</li>
+<li>Inne poprawne wartości <code class="sgmltag">DOCTYPE</code> zawierają różne wersje <acronym title="HyperText Markup Language" lang="en">HTML</acronym>, np. "<code class="sgmltag">HTML 4.01 Strict</code>", "<code class="sgmltag">XHTML 1.0 Strict</code>", "<code class="sgmltag">XHTML 1.1</code>" i jeszcze kilka innych (link do pełnej listy poprawnych wartości znajdziesz poniżej, w dziale "Zobacz także"). Wszystkie są w porządku.</li>
+</ul>
+<p>Jeżeli już posiadasz nagłówek <code class="sgmltag">DOCTYPE</code>, nie zmieniaj go. Jednak jeśli nie widzisz linii <code class="sgmltag">DOCTYPE</code> przed tagiem <code class="sgmltag">&lt;html&gt;</code>, dodaj poniższy kod:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</code></p>
+</blockquote>
+<p>Z powodów technicznych, których nie chciałbym tutaj omawiać (zobacz linki w sekcji "Zobacz także" poniżej jeśli Cię to interesuje) możliwe jest, że zobaczysz pewne drobne zmiany w wyglądzie strony po dodaniu tego kodu. Jeżeli to się zdarzy (i tylko wtedy), możesz zastosować rozwiązanie kompromisowe i użyć częściowego kodu <code class="sgmltag">DOCTYPE</code>:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;</code></p>
+</blockquote>
+<p>Zwróć uwagę, że <em>każda</em> strona Twojego serwisu czy bloga powinna zawierać definicję <code class="sgmltag">DOCTYPE</code>, a więc sprawdź wszystkie strony, szablony itd.</p>
+<ul>
+<li><strong>niByLog</strong> włącza wygenerowany kod bloga, pluginów itd. w środek strony, z której jest wywołany. Nagłówki strony <acronym title="HyperText Markup Language" lang="en">HTML</acronym> powinny się znajdować na stronie głównej, a nie w szablonach, zatem wystarczy tylko sprawdzić jedno miejsce - główną stronę bloga, na której jest umieszczone wywołanie skryptu (np. <code>index.php</code>).</li>
+<li>W <strong>blog.pl</strong> należy dodać linię <code class="sgmltag">DOCTYPE</code> w szablonach "Strona główna", "Archiwum", "Strona z komentarzami" i "Księga gości" poprzez menu "edytor html".</li>
+<li>Użytkownicy <strong lang="en">Movable Type</strong> powinni sprawdzić szablony "<span lang="en">Main Index</span>", "<span lang="en">Master Archive Index</span>", "<span lang="en">Category Archive</span>", "<span lang="en">Date-Based Archive</span>" i "<span lang="en">Individual Entry Archive</span>" oraz każdy inny szablon archiwum jaki został dodatkowo stworzony.</li>
+<li>Użytkownicy <strong>Radio Userland</strong> i <strong>Manili</strong> powinni sprawdzić zarówno "<span lang="en">Main template</span>" jak i "<span lang="en">Home page template</span>".</li>
+<li>Użytkownicy <strong lang="en">Greymatter</strong> powinni sprawdzić "<span lang="en">Main Index-Related Templates</span>", "<span lang="en">Archive-Related Templates</span>" i "<span lang="en">Entry-Related Templates</span>".</li>
+<li>Użytkownicy <strong lang="en">Bloggera</strong> powinni umieścić <code class="sgmltag">DOCTYPE</code> w głównym szablonie. Jeżeli szablon "<span lang="en">Archive template</span>" definiuje osobną stronę (to znaczy, jeżeli zaczyna się od taga <code class="sgmltag">&lt;html&gt;</code>) to również powinien być uzupełniony o nagłówek <code class="sgmltag">DOCTYPE</code>.</li>
+</ul>
+<p>Dla dalszego ciągu tego kursu ważne jest żeby wiedzieć czy używasz <code class="sgmltag">HTML 4</code> (w dowolnym wariancie), <code class="sgmltag">XHTML 1.0</code> (w dowolnym wariancie) czy <code class="sgmltag">XHTML 1.1</code>.</p>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite lang="en"><acronym title="World Wide Web Consortium Quality Assurance">W3C QA</acronym></cite>: <a href="http://www.w3.org/QA/2002/04/valid-dtd-list.html" lang="en">List of valid DTDs you can use in your document</a>, czyli lista poprawnych wartości <code class="sgmltag">DOCTYPE</code> dla różnych wersji standardów dokumentów hipertekstowych.</li>
+<li><cite lang="en">A List Apart</cite>: <a href="http://www.alistapart.com/stories/doctype/" lang="en">Fixing Your Site With The Right DOCTYPE</a>, czyli jak utworzyć poprawny nagłówek <code class="sgmltag">DOCTYPE</code>.</li>
+<li><cite><acronym title="Microsoft Developer Network" lang="en">MSDN</acronym></cite>: <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnie60/html/cssenhancements.asp" lang="en">CSS Enhancements in Internet Explorer 6</a> - rozszerzone wsparcie dla <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> w <acronym title="Internet Explorer">IE</acronym> 6, oraz wpływ deklaracji <code class="sgmltag">DOCTYPE</code> na sposób interpretacji stylów. (Uwaga: ta strona nie działa w niektórych wersjach Netscape. To wina Microsoftu, nie moja.)</li>
+<li><a href="http://www.mozilla.org/docs/web-developer/quirks/" lang="en">Quirks mode in Mozilla</a>. Różny sposób interpretacji dokumentów <acronym title="HyperText Markup Language" lang="en">HTML</acronym> w Mozilli także zależy od wartości <code class="sgmltag">DOCTYPE</code>.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_5.html">&lt;&lt; Dzień 5: Marek</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_7.html">Dzień 7: Określenie używanego języka &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_6.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 6: Wybór nagłówka DOCTYPE</span></p></div>
+</body>
+</html>

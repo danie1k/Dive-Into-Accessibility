@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_17.html" title="Dzień 17: Definiowanie akronimów" />
+<link rel="next" href="day_19.html" title="Dzień 19: Używanie prawdziwych nagłówków tabel" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_18.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu</h2>
+<!--
+<p>[Uwaga od tłumacza: w oryginalnym rozdziale 18 występowało określenie <span lang="en">"caption"</span>, natomiast w rozdziale 19 - <span lang="en">"header"</span>. Określenia te są zgodne z tagami <acronym title="HyperText Markup Language" lang="en">HTML</acronym> i jednoznaczne w języku angielskim. Jednak w obu przypadkach najlepszy polski odpowiednik brzmi "nagłówek". Dlatego zdecydowałem się stosować słowo "tytuł" w znaczeniu <span lang="en">"caption"</span> tabeli oraz "nagłówek" w znaczeniu <span lang="en">"header"</span>.]</p>
+-->
+<p class="firstparagraph">"Ale", już słyszę jak się żalisz, "mój kalendarz już <em>ma</em> tytuł. Popatrz, jest miesiąc i rok na górze. Na grubo nawet."</p>
+<p>Jednak jeśli się przyjrzysz kodowi <acronym title="HyperText Markup Language" lang="en">HTML</acronym> swojej strony, prawdopodobnie zobaczysz, że Twój kalendarz nie ma <em>prawdziwego</em> tytułu. Najczęściej jest to specjalny wiersz zawierający pojedynczą komórkę <code class="sgmltag">&lt;td&gt;</code> na całą szerokość tabeli, z takim stylem <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> żeby wyglądała jak tytuł. Dużo łatwiej to zrobić za pomocą prawdziwego tytułu, czyli taga <code class="sgmltag">&lt;caption&gt;</code>. Jest to prostsze do odczytania w szablonie, oszczędza kilka bajtów rozmiaru strony, wygląda dokładnie tak samo w przeglądarkach graficznych i jest znacznie bardziej dostępne.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_5.html">Marek</a> skorzysta. <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> wyświetla tytuł tabeli ze słowem "<samp>CAPTION:</samp>" z przodu, co umożliwia jednoznacznie stwierdzić, że to właśnie jest tytuł tabeli a nie nagłowek kolumny czy jakieś dane.</li>
+<li><a href="day_1.html">Jadzia</a> skorzysta pośrednio. Użycie taga <code>&lt;caption&gt;</code> porządkuje kod tabeli i ułatwia dalsze wprowadzenie właściwych nagłówków, co oznacza dla Jadzi znacze ułatwienie - omówimy to jutro.</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Możesz to zrobić tylko w narzędziach, które obsługują kalendarz wpisów (co wyklucza blog.pl i Bloggera) i umożliwiają dowolne dostosowanie kodu <acronym title="HyperText Markup Language" lang="en">HTML</acronym> dla generowanego kalendarza (co wyklucza Manilę).</p>
+<ul>
+<li><p><strong>niByLog</strong> standardowo nie posiada archiwum wpisów w postaci kalendarza. Stworzony przeze mnie <a href="http://mimas.ceti.pl/plugins/" title="strona z pluginami dla niByLoga">plugin do niByLoga</a> (niByLog.Kalendarz) począwszy od wersji 1.4.0 generuje poprawne tytuły.</p></li>
+<li><p>Jeżeli używasz <strong lang="en">Movable Type</strong>, to prawdopodobnie masz tabelę z kalendarzem w szablonie strony głównej. W nowszych szablonach domyślnych kalendarz jest już zrobiony w sposób dostępny i nie trzeba go poprawiać. Jednak jeśli używasz starszych szablonów to tabela ta zaczyna się tak (poszukaj tekstu "calendarhead" aby znaleźć to miejsce):</p>
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0"&gt;<br />
+<strong>&lt;tr&gt;<br />
+&lt;td colspan="7" align="center"&gt;<br />
+&lt;span class="calendarhead"&gt;&lt;$MTDate format="%B %Y"$&gt;&lt;/span&gt;<br />
+&lt;/td&gt;<br />
+&lt;/tr&gt;</strong><br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;&lt;/td&gt;<br />
+...</code></p>
+</blockquote>
+<p>Zostaw tę tabelę nienaruszoną, zmieniając jedynie cały pierwszy wiersz (tag <code class="sgmltag">&lt;tr&gt;</code>) na prawidłowy nagłówek, czyli tag <code class="sgmltag">&lt;caption&gt;</code>:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;table border="0" cellspacing="4" cellpadding="0"&gt;<br />
+<strong>&lt;caption class="calendarhead"&gt;&lt;$MTDate format="%B %Y"$&gt;&lt;/caption&gt;</strong><br />
+&lt;tr&gt;<br />
+&lt;td align="center"&gt;&lt;span class="calendar"&gt;Sun&lt;/span&gt;&lt;/td&gt;<br />
+...</code></p>
+</blockquote>
+<p>Reszty na razie nie ruszaj; poprawimy to jeszcze jutro.</p>
+<p>Atrybut <code>class</code> w tagu <code class="sgmltag">&lt;caption&gt;</code> jest opcjonalny; zostawiłem go aby pasował do domyślnego szablonu <span lang="en">Movable Type</span>, który używa <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> aby ustawić nazwę miesiąca i rok na tekst pogrubiony. Po użyciu taga <code class="sgmltag">&lt;caption&gt;</code> jak powyżej, wygląd strony nie powinien ulec zmianie.</p>
+</li>
+<li><p>W programie <strong lang="en">Greymatter</strong> zasada jest identyczna, różnią się jedynie tagi używane w szablonie:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;caption&gt;{{monthword}} {{yearyear}}&lt;/caption&gt;</code></p>
+</blockquote>
+<p>Tutaj również możesz zmienić wygląd tytułu tabeli przy użyciu <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>.</p>
+</li>
+<li><p>W systemie <strong>Radio</strong> sprawa jest trochę bardziej skomplikowana, ale nie niemożliwa.</p>
+<ol>
+<li><p>Otwórz właściwą aplikację Radio klikając prawym klawiszem myszy ikonkę Radio w trayu i wybierając "<span lang="en">Open Radio</span>".</p></li>
+<li><p>W menu "<span lang="en">Tools</span>" wybierz "<span lang="en">Developers</span>", "<span lang="en">Jump...</span>" (<kbd>Control+J</kbd>) i przejdź do "system.verbs.builtins.radio.weblog.drawCalendar" (bez cudzysłowu).</p></li>
+<li><p>Następnie w menu "<span lang="en">Edit</span>", "<span lang="en">Find and Replace</span>", "<span lang="en">Find...</span>" (<kbd>Control+F</kbd>) poszukaj "hCalendarTable". Powinno się to znajdować we fragmencie kodu odpowiedzialnym za generowanie taga <code>&lt;table&gt;</code> kalendarza i udawanego nagłówka.</p></li>
+<li><p>Zmień linię wypisującą zmienną <var>monthYearString</var> w tagu <code>&lt;tr&gt;</code> na następującą:</p>
+<blockquote>
+<p><code class="sgmltag">add ("&lt;caption&gt;" + monthYearString + "&lt;/caption&gt;")</code></p>
+</blockquote>
+</li>
+<li><p>Zamknij to okno. Na pytanie czy chcesz skompilować zmiany, odpowiedz że tak.</p></li>
+<li><p>Możesz również zmienić styl tytułu kalendarza. W szablonie "<span lang="en">Home Page Template</span>" dodaj lub uzupełnij style dla taga <code>caption</code>.  Np. jeżeli sekcja <code>&lt;style&gt;</code> zawierała coś takiego:</p>
+<blockquote>
+<pre><code>body, td, p {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+}</code></pre>
+</blockquote>
+<p>teraz powinna zawierać:</p>
+<blockquote>
+<pre><code>body, td, p, <strong>caption</strong> {
+    font-family: verdana, sans-serif;
+    font-size: 12px;
+    }
+<strong>caption {
+  text-align: center;
+  font-weight: bold;
+}</strong></code></pre>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h3>Zobacz także</h3>
+<ul>
+<li><cite>Tony Bowden</cite>: <a href="http://www.tmtm.com/nothing/archives/2002_07_03.html" lang="en">Changing the Calendar in Radio</a>. (Strona w języku angielskim)</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_17.html">&lt;&lt; Dzień 17: Definiowanie akronimów</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_19.html">Dzień 19: Używanie prawdziwych nagłówków tabel &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_18.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 18: Nadawanie kalendarzowi prawdziwego tytułu</span></p></div>
+</body>
+</html>

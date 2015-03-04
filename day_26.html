@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 26: Używanie względnych rozmiarów czcionek</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_25.html" title="Dzień 25: Używanie prawdziwych linii (albo dobrze udawanych)" />
+<link rel="next" href="day_27.html" title="Dzień 27: Używanie prawdziwych nagłówków" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_26.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 26: Używanie względnych rozmiarów czcionek</h2>
+<p class="firstparagraph">Strony internetowe, z nielicznymi wyjątkami, koncentrują się na słowach. Nowości, opinie, myśli, pomysły, blogi, historie, pisarstwo, e-biznes: to wszystko słowa. Wygląd graficzny jest oczywiście ważny, ale jeśli ludzie nie są w stanie odczytać Twoich słów, to jaki w ogóle jest sens całej zabawy?</p>
+<p>Pod koniec 2000 roku, <span lang="en">Jeffrey Zeldman</span> wygłosił słynną opinię, że <a href="http://www.alistapart.com/stories/fear4/">stosowanie względnych rozmiarów czcionek jest niemożliwe</a> ("<span lang="en">Pixels, baby. Or nothing.</span>") z powodu przytłaczającej różnorodności błędów w przeglądarkach, począwszy od Netscape 4 aż po najnowocześniejsze wersje różnych innych programów. Od tego czasu Netscape 4 wcale się nie poprawił, i wcale nie zniknął, ale przynajmniej nauczyliśmy się kilku rzeczy na temat radzenia sobie z przeglądarkami i umiemy spowodować, by ustalanie względnych rozmiarów czcionek stało się rzeczywistością. (<span lang="en">Zeldman</span> również - jego <a href="http://www.webstandards.org/" lang="en">Web Standards Project</a> używa techniki opisanej poniżej.)</p>
+<p>Technika polega na tym, żeby używać względnych rozmiarów czcionek w przeglądarkach, które potrafią je obsługiwać, natomiast rozmiarów bezwzględnych w Netscape 4, który nie obsługuje poprawnie rozmiarów względnych. Możesz to zrobić nawet jeśli nie używasz wielokrotnych arkuszy stylów specjalizowanych pod konkretne przeglądarki. Za chwilę pokażę gotowe do skopiowania rozwiązanie dla domyślnych szablonów <span lang="en">Movable Type</span> i Radio. Zamieszczony również poniżej szczegółowy opis techniki umożliwi Ci zaimplementowanie podobnego rozwiązania w dowolnym narzędziu publikacji i na dowolnej stronie.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><p><a href="day_4.html">Julia</a> skorzysta. Julia ma problemy z odczytaniem tekstu na stronach internetowych po prostu z powodu wieku. Podobnie jak 80% populacji użytkowników Internetu, używa ona przeglądarki Internet Explorer dla Windows, która nie umożliwia zmiany rozmiaru tekstu jeżeli na stronie nie są jawnie określone rozmiary względne. Julia zmieniła domyślny rozmiar tekstu w przeglądarce (w menu "Widok, Rozmiar tekstu"), jednak to nic nie zmienia jeśli na stronie są określone rozmiary bezwzględne. Taka sytuacja dotyczy niemal każdego szablonu bloga ze wszystkich jakie w ogóle istnieją. Na przykład, tak dla Julii wygląda strona oparta na domyślnym szablonie <span lang="en">Movable Type</span>:</p>
+<p><a href="images/abs_sizing.gif" title="Kliknij aby zobaczyć pełną wersję (35K)"><img alt="Zrzut ekranu ze standardowym szablonem Movable Type jak jest widziany oczami Julii; tekst jest kompletnie rozmazany i niemożliwy do odczytania" title="" src="images/abs_sizing_thumb.gif" width="300" height="300" /></a></p>
+<p>Jeżeli szablon używałby względnych rozmiarów czcionek, to ta strona wyglądałaby <strong><em>dokładnie tak samo</em></strong> dla większości czytelników, którzy nie potrzebują (albo nie chcą) zmieniać rozmiaru tekstu. Jednak dla Julii wyglądałoby to tak:</p>
+<p><a href="images/rel_sizing.gif" title="Kliknij aby zobaczyć pełną wersję (79K)"><img alt="Zrzut tego samego ekranu z szablonem opertym na względnych rozmiarach czcionek; tekst jest nadal rozmazany ale wystarczająco duży, aby dało się go odczytać" title="" src="images/rel_sizing_thumb.gif" width="300" height="300" /></a></p>
+<p>Ponownie: jeśli ludzie nie są w stanie odczytać Twoich słów to <em>o co w ogóle chodzi?</em></p>
+</li>
+</ol>
+<h3>Jak to zrobić: Radio</h3>
+<p>W szablonie "<span lang="en">Home Page Template</span>" poszukaj w sekcji <code>&lt;style&gt;</code> kodu <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> wyglądającego tak:</p>
+<blockquote>
+<pre><code>body, td, th, p {
+  font-family: verdana, sans-serif;
+  font-size: 12px;
+}</code></pre>
+</blockquote>
+<p><em>Pozostaw to tak jak jest</em>, ale dopisz zaraz za nim:</p>
+<blockquote>
+<pre><code>/*/*/a{}
+body,
+body td,
+body th,
+body p {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html&gt;body,
+html&gt;body td,
+html&gt;body th
+html&gt;body p {
+  font-size: small;
+}  
+/* */</code></pre>
+</blockquote>
+<p>Uważaj, żeby nie zgubić tych komentarzy na początku i na końcu. One są kluczowe dla całej sprawy, tak jak opisano poniżej.</p>
+<h3>Jak to zrobić: <span lang="en">Movable Type</span></h3>
+<p>Domyślny szabon <span lang="en">Movable Type</span> jest bardziej skomplikowany niż szablony Radio, ale zamierzamy to zrobić w analogiczny sposób. W szablonie stylów (<code>styles-site.css</code>) dopisz na końcu następujący kod:</p>
+<blockquote>
+<pre><code>/*/*/a{}
+body,
+body a,
+body .calendar,
+body .calendarhead,
+body .title,
+body .sidetitle,
+body .syndicate,
+body .powered,
+body .comments-post,
+body .posted {
+  font-size: xx-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: x-small;
+}
+html&gt;body,
+html&gt;body a,
+html&gt;body .calendar,
+html&gt;body .calendarhead,
+html&gt;body .title,
+html&gt;body .sidetitle,
+html&gt;body .syndicate,
+html&gt;body .powered,
+html&gt;body .comments-post,
+html&gt;body .posted {
+  font-size: x-small;
+}
+body .date {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html&gt;body .date {
+  font-size: small;
+}
+body #banner {
+  font-size: 200%;
+}
+body .description {
+  font-size: 60%;
+}
+body .blogbody {
+  font-size: 110%;
+}
+body .blogbody,
+body .calendar,
+body .calendarhead,
+body .side,
+body .title,
+body .sidetitle,
+body .syndicate,
+body .powered,
+body .comments-body {
+  line-height: 128%;
+}
+/* */</code></pre>
+</blockquote>
+<p>Uważaj żeby nie zgubić komentarzy na początku i na końcu.</p>
+<h3>Jak to zrobić: szczegółowe wyjaśnienie</h3>
+<p>Ogólny pomysł jest taki, że chcemy użyć słów kluczowych do określenia rozmiaru tekstu. Jest to rzadko stosowane (z powodu błędów w starszych przeglądarkach), ale ma kilka interesujących cech:</p>
+<ol>
+<li>Tak określone rozmiary tekstu się nie nakładają. Jeżeli masz sekcję główną strony (np. "main") o rozmiarze czcionki <code>90%</code> a wewnątrz masz kolejną sekcję (np. "post") o rozmiarze tekstu określonym również jako <code>90%</code>, to niektóre przeglądarki pokażą tekst w rozmiarze 81% (90% x 90%) a inne w 90%. Jeśli występuje kilka takich zagłębień (co jest powszechne jeśli się używa tabel do określenia układu strony) to tekst szybko staje się nieczytelnie mały, gdy procenty te się nakładają. Jednak jeśli sekcja "main" miałaby rozmiar czcionki określony jako <code>small</code> i sekcja "post" również jako <code>small</code> to wszystkie przeglądarki pokażą tekst w sekcji "post" w rozmiarze <code>small</code>, nie mniejszym.</li>
+<li>Takie rozmiary skalują się poprawnie w przeglądarce Internet Explorer dla Windows. To jest dziwne, ponieważ <code>small</code> brzmi właśnie jak rozmiar bezwzględny (zwłaszcza w sytuacji gdy <code>small</code> zagłębione w <code>small</code> to nadal jest <code>small</code>, patrz wyżej), ale działa dobrze.  Cóż mogę powiedzieć? IE/Win skaluje teksty, których rozmiar jest opisany przez słowa kluczowe. Przysięgam.</li>
+<li>Nigdy nie są <em>zbyt</em> małe. Menu zmiany rozmiaru tekstu, którego Julia używa w Internet Explorerze może służyć zarówno do jego zwiększenia jak i do zmniejszenia. Wielu ludzi o dobrym wzroku często preferuje wszystkie teksty o jeden czy nawet dwa rozmiary mniejsze niż normalnie. Teksty o rozmiarach określanych w procentach mają tendencję do stawania się mikroskopijnie małymi i nieczytelnymi, kiedy domyślny rozmiar tekstu w przeglądarce jest ustawiony na najmniejszy. Jednak kiedy rozmiar jest określony przez słowa kluczowe, to tekst zawsze pozostaje przynajmniej wielkości 9px, co jest czytelne przy dowolnym foncie (zakładając dobry wzrok użytkownika).</li>
+</ol>
+<p>Zatem zamierzamy użyć słów kluczowych do określenie podstawowych rozmiarów. A jeżeli będzie potrzeba dokładniejszej kontroli rozmiaru to użyjemy procentów, ale tylko dla klas zagłębionych (to znaczy np. dla "post" ale nie dla "main") aby uniknąć nakładania się procentów, i nie zbyt małych, aby uniknąć rozmiarów mikroskopijnych w kombinacji z najmniejszym ustawieniem w przeglądarce użytkownika.</p>
+<p>Ogólna zasada określania rozmiarów czcionek na stronie wygląda tak:</p>
+<blockquote>
+<pre><code>p {
+  font-size: 12px;
+}
+/*/*/a{}
+body p {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html&gt;body p {
+  font-size: small;
+}
+/* */</code></pre>
+</blockquote>
+<p>Sporo się tu dzieje i wszystko jest ważne, więc uważaj.</p>
+<ol>
+<li>Najpierw określamy bezwzględny rozmiar czcionki (12px) dla każdego paragrafu &lt;p&gt;. Wszystkie przeglądarki zastosują taki styl, łącznie z Netscape 4.</li>
+<li>Następnie umieszczamy ten dziwnie wyglądający komentarz "/*/*/". Z powodu błędu w przeglądarce Netscape 4, wszystko między tym komentarzem a następnym zostanie zignorowane. Wszystkie następne style będą zastosowane tylko przez przeglądarki inne niż Netscape 4.</li>
+<li>Natychmiast za tym komentarzem umieszczamy pusty styl "a {}".  Opera 5 dla komputerów Macintosh ma błąd i ignoruje ten zapis (i tylko ten). Wszystkie następne już odczytuje.</li>
+<li>Teraz jesteśmy w miejscu, gdzie możemy opisywać style, które będą zastosowane przez wszystkie przeglądarki oprócz Netscape 4. Możemy teraz zacząć definiować rozmiary względne (których Netscape 4 nie umiałby obsłużyć). W pierwszej kolejności używamy selektora "body p" aby przedefiniować styl dla taga <code>&lt;p&gt;</code>. Zgodnie z zasadami działania <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, nadpisze to poprzednią definicję stylu dla paragrafu. (Technicznie mówiąc "body p" jest <em>bardziej szczegółowym selektorem</em> niż "p".)</li>
+<li>Przedefiniujemy rozmiar czcionki we wszystkich tagach <code>&lt;p&gt;</code> na <code>x-small</code>. To słowo kluczowe, które przy domyślnych ustawieniach Internet Explorer 5 dla Windows przetłumaczy na 12px. Jednak jeżeli użytkownik zmieni rozmiar tekstu w menu przeglądarki, to ten tekst zostanie przeskalowany na większy lub mniejszy w zależności od preferencji użytkownika. O to nam właśnie chodzi. (Uwaga: teraz mamy zdefiniowany rozmiar czcionki <em>dwukrotnie</em> dla IE5/Win, ale to nic nie szkodzi, ponieważ bardziej szczegółowy selektor zawsze jest traktowany jako ważniejszy i poprzednie przypisanie rozmiaru jest po prostu ignorowane.)</li>
+<li>Niestety IE5/Win ma błąd przesunięcia słów kluczowych rozmiarów o jeden; każda inna przeglądarka na świecie (IE5/Mac, Netscape 6, Mozilla, IE6/Win) przetłumaczy <code>x-small</code> na 10px, nie 12px. Na szczęście IE5/Win posiada również błąd parsowania arkusza stylów, który możemy wykorzystać: widząc tą dziwnie wyglądającą definicję atrybutu voice-family myśli, że cała definicja dla "body p" się kończy, więc ignoruje wszystko aż do znaku "}".</li>
+<li>Teraz jesteśmy w miejscu gdzie możemy definiować style dla wszystkich przeglądarek oprócz IE5/Win (i Netscape 4, który w dalszym ciągu to wszystko ignoruje). Zatem przedefiniujemy rozmiar czcionki na <code>small</code>, co przez nowoczesne przeglądarki (jedyne, które jeszcze to analizują) zostanie poprawnie zinterpretowane jako 12px (domyślne ustawienie). Ponownie, jeśli użytkownik ustawi w opcjach przeglądarki rozmiar tekstu na większy to tekst w paragrafie zostanie przeskalowany, a o to nam właśnie chodzi.</li>
+<li>Ale zaraz! Opera 5 ma ten sam błąd parsowania jaki ma IE5/Win, więc również pogubi się przy definicji voice-family, ale dobrze interpretuje słowa kluczowe rozmiarów czcionki, więc w tej przeglądarce tekst będzie teraz zbyt mały. Na szczęście, Opera 5 potrafi interpretować <em>trzeci</em> rodzaj selektorów, "html&gt;body p". (Ponownie, to jest "bardziej szczegółowe" niż "body p", więc taka definicja jest ważniejsza niż poprzednie.)  IE5/Win nie rozumie takiego zapisu, więc po prostu to zignoruje, i o to nam chodzi, ponieważ już mamy dla niego ustalony rozmiar czcionki.  IE6/Win również nie wspiera takich selektorów, ale to też jest ok, ponieważ dla tej przeglądarki jest już ustalony rozmiar "font-size: small" po sztuczce z "voice-family: inherit" w "body p". Wszystkie inne przeglądarki poprawnie interpretują zapis "html>body p", więc dla nich definiujemy rozmiar czcionki po raz <em>czwarty</em>. To oczywiście nie jest żaden problem, ponieważ najbardziej szczegółowy selektor jest zawsze najważniejszy a inne są po prostu ignorowane.</li>
+<li>W końcu umieszczamy pusty komentarz: <code>/* */</code>. To oznacza, że od tego miejsca Netscape 4 znowu analizuje arkusz stylów. Czyli wszystkie kolejne style opisane poniżej tego komentarza dotyczą znowu wszystkich przeglądarek (łącznie z Netscape 4).</li>
+</ol>
+<p>W efekcie powyższego:</p>
+<ol>
+<li>Netscape 4 pokazuje tekst w <code>&lt;p&gt;</code> rozmiarem 12px, niezależnie od ustawień użytkownika.</li>
+<li>Internet Explorer 5 dla Windows pokazuje tekst w <code>&lt;p&gt;</code> rozmiarem <code>x-small</code>, który w tej przeglądarce przy domyślnych ustawieniach jest równy 12px, ale może być zwiększony lub zmniejszony w zależności od ustawień w menu.</li>
+<li>Internet Explorer 6 dla Windows pokazuje tekst w <code>&lt;p&gt;</code> rozmiarem <code>small</code>, ponieważ "font-size: small" jest opisane w "body p". Taki rozmiar przy domyślnych ustawieniach jest równy 12px, ale może być zmieniony w zależności od ustawień w menu przeglądarki.</li>
+<li>Internet Explorer 5 dla Macintoshy, Opera, Netscape 6, Mozilla, oraz (mamy nadzieję) wszystkie przyszłe przeglądarki pokażą tekst w <code>&lt;p&gt;</code> rozmiarem <code>small</code>, ze względu na zapis "font-size: small" w "html&gt;body p". Przy domyślnych ustawieniach jest to rozmiar równy 12px, ale może być zmieniony przez użytkownika.</li>
+</ol>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite>Mark Pilgrim</cite>: <a href="examples/fontsize.html" lang="en">Relative Font Sizing HOWTO</a>. Dokładnie to samo wyjaśnienie, jednak strona sama w sobie używa tej techniki, więc możesz to sprawdzić w działaniu.</li>
+<li><cite title="A List Apart">Todd Fahrner</cite>: <a href="http://www.alistapart.com/stories/sizematters/" lang="en">Size Matters: Making Font Size Keywords Work</a>. Artykuł w magazynie <a href="http://www.alistapart.com/" lang="en">A List Apart</a> opisujący podobne techniki jak przedstawione powyżej.</li>
+<li><cite>Caio Chassot</cite>: <a href="http://www.v2studio.com/k/css/n4hide/" lang="en">Hiding CSS from Netscape 4</a>. Opisuje prosty sposób ukrywania reguł <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> przed przeglądarką Netscape 4 bez użycia wielu arkuszy stylów.</li>
+<li><cite>Tantek &Ccedil;elik</cite>: <a href="http://tantek.com/CSS/Examples/boxmodelhack.html" lang="en">Box Model Hack</a>. Ukrywanie <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> przed przeglądarką Internet Explorer 5 dla Windows.</li>
+<!--
+<li><a href="http://www.webstandards.org/">The Web Standards Project</a> also uses font size keywords with the IE5/Win hack, although they use a Javascript-based solution (instead of the inline comment hack) to deal with Netscape 4.</li>
+-->
+<li><cite>Owen Briggs</cite>: <a href="http://www.thenoodleincident.com/tutorials/box_lesson/font/index.html" lang="en">Text Sizing</a>. Zrzuty ekranów przedstawiające efekty różnych technik określania względnego rozmiaru czcionek w różnych przeglądarkach, na różnych systemach i przy różnych ustawieniach opcji przeglądarki.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_25.html">&lt;&lt; Dzień 25: Używanie prawdziwych linii (albo dobrze udawanych)</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_27.html">Dzień 27: Używanie prawdziwych nagłówków &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_26.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 26: Używanie względnych rozmiarów czcionek</span></p></div>
+</body>
+</html>

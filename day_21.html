@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 21: Ignorowanie obrazków pozycjonujących</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_20.html" title="Dzień 20: Tworzenie streszczenia dla tabel" />
+<link rel="next" href="day_22.html" title="Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_21.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 21: Ignorowanie obrazków pozycjonujących</h2>
+<p class="firstparagraph">Wielu autorów stron internetowych używa przezroczystych obrazków do precyzyjnego wpływania na układ strony w przeglądarkach graficznych. Możesz ich używać do woli, pod warunkiem, że dla każdego podasz pusty opis (atrybut <code>alt</code>), aby przeglądarki niegraficzne wiedziały, że mają ten obrazek zignorować.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><p><a href="day_5.html">Marek</a> skorzysta.  Domyślnie <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> pokazuje nazwę pliku dla każdego obrazka, który nie ma zdefiniowanego atrybutu <code>alt</code>. Jeżeli Twoja strona zawiera przezroczyste obrazki służące do wprowadzenia odstępu, spozycjonowania tytułu itp., to Ty ich nie widzisz w swojej przeglądarce graficznej, ale Marek zobaczy np. coś takiego:</p>
+<blockquote>
+<pre>[shim.gif] [shim.gif]
+[shim.gif]
+[shim.gif]
+Witam na mojej stronie
+[ciblueHeader2.gif]
+[ciblueCurve2.gif]</pre>
+</blockquote>
+</li>
+<li><p><a href="day_1.html">Jadzia</a> skorzysta.  Domyślnie <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> <em>czyta</em> nazwy plików wszystkich obrazków, które nie mają zdefiniowanego atrybutu <code>alt</code>. Jeśli uważasz, że Marek mógłby się zirytować, wyobraź sobie jak frustrujące jest dla Jadzi słuchanie czegoś takiego:</p>
+<blockquote>
+<p>graphic shim dot gif graphic shim dot gif graphic shim dot gif graphic shim dot gif witam na mojej stronie graphic c i blue header two dot gif graphic c i blue curve two dot gif</p>
+</blockquote>
+<p>Jeśli spróbujesz się przedstawiać w taki sposób w normalnym życiu, to nikt nawet nie zechce z Tobą gadać.</p>
+</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Użytkownicy systemu Radio mogą odpocząć. Radio automatycznie generuje puste atrybuty <code>alt</code> dla wszystkich obrazków pozycjonujących. Jeżeli jednak w kodzie swojej strony nie widzisz <code>alt=""</code> dla tych obrazków, uaktualnij Radio.root i opublikuj stronę ponownie.</p>
+<p>Użytkownicy innych narzędzi powinni sprawdzić wszystkie szablony w poszukiwaniu tagów <code>&lt;img&gt;</code> z nazwami plików w stylu "<code class="filename">spacer.gif</code>", "<code class="filename">shim.gif</code>", "<code class="filename">1.gif</code>" itp., albo obrazków występujących w szablonie wielokrotnie i za każdym razem z innymi wartościami atrybutów <code>width</code> i <code>height</code>.</p>
+<p>Przykładowo, dla każdego obrazka opisanego tak:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img src="spacer.gif" width="1" height="10"&gt;</code></p>
+</blockquote>
+<p>uzupełnij kod następująco:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img src="spacer.gif" <strong>alt=""</strong> width="1" height="10"&gt;</code></p>
+</blockquote>
+<p>Jeżeli używasz tego samego obrazka wiele razy na stronie, to prawdopodobnie najłatwiej jest zrobić to przez globalną zamianę wszystkich wystąpień np. tekstu <code class="sgmltag">src="spacer.gif"</code> na <code class="sgmltag">src="spacer.gif" alt=""</code>.</p>
+<h3>Czego nie robić?</h3>
+<ol>
+<li><p>Nie definiuj <code>alt=" "</code>.  Atrybut <code>alt</code> powinien być pustym tekstem, nie spacją.</p></li>
+<li><p>Nie określaj atrybutu <code>alt</code> dla taga <code>&lt;body&gt;</code>, nawet jeśli zawiera on obrazek tła, np. tak:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;body background="http://url/to/image.gif"&gt;</code></p>
+</blockquote>
+<p>Grafika w tle jest zawsze ignorowana przez niegraficzne przeglądarki.</p>
+</li>
+<li><p>Nie określaj atrybutu <code>alt</code> dla taga <code>&lt;td&gt;</code>, nawet jeśli zawiera on obrazek tła tabeli, np.:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;td background="http://url/to/image.gif"&gt;</code></p>
+</blockquote>
+<p>Grafika w tle tabel jest także ignorowana przez przeglądarki niegraficzne.</p>
+</li>
+</ol>
+<h3>Zobacz także</h3>
+<ul>
+<li><cite><acronym title="Web Accessibility In Mind" lang="en">WebAIM</acronym></cite>: <a href="http://www.webaim.org/howto/graphics/accessiblegraphics3" lang="en">How to Create Accessible Graphics : Provide text alternatives for all images</a> opisuje potrzebę stosowania tekstów alternatywnych dla obrazków na stronach internetowych. (Strona w języku angielskim)</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_20.html">&lt;&lt; Dzień 20: Tworzenie streszczenia dla tabel</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_22.html">Dzień 22: Używanie prawdziwych list (albo dobrze udawanych) &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_21.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 21: Ignorowanie obrazków pozycjonujących</span></p></div>
+</body>
+</html>

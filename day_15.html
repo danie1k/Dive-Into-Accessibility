@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 15: Definiowanie klawiszy skrótu</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_14.html" title="Dzień 14: Dodawanie tytułów do linków" />
+<link rel="next" href="day_16.html" title="Dzień 16: Bez wymuszania nowych okien" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_15.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 15: Definiowanie klawiszy skrótu</h2>
+<p class="firstparagraph">Jedną z mniej znanych cech <acronym title="HyperText Markup Language" lang="en">HTML</acronym> jest atrybut <code>accesskey</code> dla linków i elementów formularza. Umożliwia on zdefiniowanie klawisza skrótu dla odnośnika lub pola na formularzu. W systemie Windows skrót najczęściej wywołuje się w kombinacji z klawiszem <kbd>ALT</kbd> (czyli <kbd>ALT</kbd> + klawisz skrótu) a na Macintoshu z klawiszem <kbd>Control</kbd>. Jeżeli klawisz jest przypisany do linku, Twoja przeglądarka przejdzie do tego linku; jeżeli jest przypisany do pola formularza, kursor ustawi się w tym polu. Niektóre przeglądarki (np. <a href="http://www.mozilla.org/">Mozilla</a>) powodują automatyczne wywołanie linku z przypisanym danym klawiszem skrótu, a inne (np. <a href="http://www.microsoft.com/windows/ie/default.asp">Internet Explorer</a>) jedynie ustawiają kursor i wymagane jest jeszcze naciśnięcie klawisza <kbd>Enter</kbd>. Internet Explorer obsługuje skróty klawiszowe od wersji 4, Netscape od wersji 6. <a href="http://www.opera.com/">Opera</a> dopiero od wersji 7 i to w dosyć dziwnej kombinacji - aktywacja skrótu w Operze 7 następuje przez naciśnięcie <kbd>Shift + Esc</kbd> i dopiero potem klawisza skrótu. Starsze przeglądarki po prostu ignorują atrybut <code>accesskey</code> bez żadnych efektów.</p>
+<p>Nie ma jednolitych standardów, opisujących które klawisze powinny być przypisane do jakich elementów strony. Jednak do często używanych należą:</p>
+<dl>
+<dt>accesskey 1</dt>
+<dd>Strona główna</dd>
+<dt>accesskey 2</dt>
+<dd>Przejście do głównej zawartości (<a title="Dzień 11: Przeskakiwanie menu strony" href="day_11.html">link przeskakujący nawigację</a>)</dd>
+<dt>accesskey 4</dt>
+<dd>Okienko przeszukiwania treści strony</dd>
+<dt>accesskey 9</dt>
+<dd>Kontakt z autorem</dd>
+</dl>
+<p>Atrybut <code>accesskey</code> może definiować dowolny klawisz - cyfrę, literę lub znak specjalny. Jednak ze względu na możliwość konfliktu ze skrótami już zdefiniowanymi w przeglądarce (np. pozycje menu są najczęściej osiągalne przez <kbd>ALT+litera</kbd>) bezpieczniej jest stosować skróty cyfrowe.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_1.html">Jadzia</a> skorzysta.  Kiedy <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> czyta link ze zdefiniowanym atrybutem <code>accesskey</code>, informuje również o klawiszu skrótu. Na przykład, link <code class="sgmltag">&lt;a href="/" accesskey="1"&gt;Strona główna&lt;/a&gt;</code> zostałby odczytany jako "link: strona główna, ALT + 1".  Jadzia może ustawić się na tym linku przez naciśnięcie <kbd>ALT+1</kbd>, a następnie przejść na stronę główną naciskając <kbd>ENTER</kbd>.</li>
+<li><a href="day_3.html">Bill</a> skorzysta.  Bill od czasu zawału nie może używać myszki efektywnie, zatem podczas poruszania się po Internecie polega głównie na klawiaturze. Skróty klawiszowe są dla niego świetną pomocą przy przechodzeniu do częstych linków. Bill może nacisnąć <kbd>ALT+1</kbd> i jego <a href="http://www.mozilla.org/">Mozilla</a> natychmiast (nawet bez naciskania klawisza <kbd>ENTER</kbd>) przejdzie do strony wskazanej przez link opisany przy pomocy <code>accesskey="1"</code>.  (Uwaga: Mozilla nie ogłasza w żaden sposób jakie klawisze są dostępne na danej stronie. Powstaje więc pytanie: skąd Bill ma się o nich dowiedzieć? Będziemy to jeszcze omawiać <a href="day_30.html" title="Dzień 30: Tworzenie oświadczenia o dostępności">w dalszej części</a>.)</li>
+</ol>
+<h3>Jak to zrobić: link do strony głównej</h3>
+<ul>
+<li><p><strong>blog.pl</strong>: W wielu standardowych szablonach strona archiwum nie ma w ogóle linku do strony głównej. Zatem należy go utworzyć z nazwy bloga, np.:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="/" class="pageheader" accesskey="1"&gt;{ksywa} blog&lt;/a&gt;</code></p>
+</blockquote>
+<p>Jeżeli taki link do strony głównej już istnieje, to wystarczy go uzupełnić o <code>accesskey="1"</code>. Strony komentarzy oraz księgi gości mają zdefiniowane linki do strony głównej, jednak nie posiadają atrybutu <code>accesskey</code> i należy go dodać:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="../" <strong>accesskey="1"</strong>&gt;[strona główna]&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p><strong lang="en">Movable Type</strong>: Domyślny szablon nie ma linku do strony głównej, zatem trzeba go zrobić na podstawie nazwy bloga. Poszukaj w szablonie kodu <code>&lt;$MTBlogName$&gt;</code> i zamień go na:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="&lt;$MTBlogURL$&gt;" style="color:black; text-decoration:none" accesskey="1"&gt;&lt;$MTBlogName$&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p><strong>Radio</strong>: Poszukaj w szablonie zmiennej <code>&lt;%siteName%&gt;</code>. Prawdopodobnie będzie to link, np. taki:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:black; text-decoration:none"&gt;&lt;%siteName%&gt;&lt;/a&gt;</code></p>
+</blockquote>
+<p>Trzeba mu dodać atrybut <code>accesskey</code>, np. tak:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:black; text-decoration:none" <strong>accesskey="1"</strong>&gt;&lt;%siteName%&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+<li><p><strong lang="en">Blogger</strong>: Poszukaj w szablonie zmiennej <code>&lt;$BlogTitle$&gt;</code>. Jeżeli jest ona użyta w linku (zamknięta w tagu <code>&lt;a&gt;</code>), wystarczy, że dodasz <code>accesskey="1"</code>, podobnie jak w przykładach powyżej. Jeżeli <code>&lt;$BlogTitle$&gt;</code> <em>nie jest</em> w tagu <code>&lt;a&gt;</code> to należy go przerobić na link (wstaw poprawny adres Twojej strony):</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="http://adres/twojej/strony/głównej" style="color:black; text-decoration:none" accesskey="1"&gt;&lt;$BlogTitle$&gt;&lt;/a&gt;</code></p>
+</blockquote>
+</li>
+</ul>
+<h3>Jak to zrobić: przeskakiwanie menu</h3>
+<p>Jeżeli masz <a href="day_11.html" title="Dzień 11: Przeskakiwanie menu strony">link do przeskoczenia menu strony</a>, przypisz mu <code>accesskey="2"</code>.</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a class="skiplink" href="#startcontent" <strong>accesskey="2"</strong>&gt;Przeskocz menu&lt;/a&gt;</code></p>
+</blockquote>
+<h3>Jak to zrobić: kontakt</h3>
+<p>Masz link do formularza kontaktowego albo do swojego adresu e-mail? Jeśli tak, przypisz mu <code>accesskey="9"</code>.</p>
+<blockquote>
+<p><code class="sgmltag">&lt;a href="mailto:ja@mojadomena.pl" <strong>accesskey="9"</strong>&gt;Wyślij e-mail&lt;/a&gt;</code></p>
+</blockquote>
+<p>Blogi oparte na systemie <strong>Radio</strong> mają link do strony kontaktowej (ikonka koperty) generowany przez makro <code>&lt;%radio.macros.mailto ()%&gt;</code>. Aby dodać mu obsługę skrótu, należy zmodyfikować treść tego makra:</p>
+<ol>
+<li><p>Otwórz właściwą aplikację Radio klikając prawym klawiszem myszy ikonkę Radio w trayu i wybierając "<span lang="en">Open Radio</span>".</p></li>
+<li><p>W menu "<span lang="en">Tools</span>" wybierz "<span lang="en">Developers</span>", "<span lang="en">Jump...</span>" (<kbd>Control+J</kbd>) i przejdź do "radio.macros.mailto" (bez cudzysłowu).</p></li>
+<li><p>Zlokalizuj linię:</p>
+<blockquote>
+<p><code>return ("&lt;a href=\"" + url + "\" title=\"" + tooltip + "\"&gt;&lt;img src=\"http://static.userland.com/shortcuts/images/qbullets/mailto.gif\" width=\"14\" height=\"10\" border=\"0\" alt=\"" + tooltip + "\"&gt;&lt;/a&gt;")</code></p>
+</blockquote>
+<p>i zamień ją na:</p>
+<blockquote>
+<p><code>return ("&lt;a href=\"" + url + "\" title=\"" + tooltip + "\" <strong>accesskey=\"9\"</strong>&gt;&lt;img src=\"http://static.userland.com/shortcuts/images/qbullets/mailto.gif\" width=\"14\" height=\"10\" border=\"0\" alt=\"" + tooltip + "\"&gt;&lt;/a&gt;")</code></p>
+</blockquote>
+</li>
+<li><p>Wciśnij klawisz "<span lang="en">Compile</span>" i zamknij okno.</p></li>
+</ol>
+<p>Atrybuty <code>accesskey</code> powinny być zdefiniowane tak samo na wszystkich stronach; pamiętaj, żeby zrobić zmiany we wszystkich koniecznych szablonach.</p>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite>Jukka Korpela</cite>: <a href="http://www.cs.tut.fi/~jkorpela/forms/accesskey.html" lang="en">Improving accessibility with <code>accesskey</code> in <acronym title="HyperText Markup Language" lang="en">HTML</acronym> forms and links</a>. Artykuł wyjaśnia sposób zastosowania <code>accesskey</code> w linkach i formularzach, oraz podaje kilka "standardowych" sposobów przypisania klawiszy.</li>
+<li><cite>Paul Bohman</cite>: <a href="http://www.webaim.org/discussion/mail_message.php?id=800" lang="en">Access keys, <acronym title="Internet Explorer">IE</acronym>6</a>.  Fragment dyskusji na temat <code>accesskey</code> na <a href="http://www.webaim.org/discussion/" lang="en">Web Accessibility Forum Mailing List</a>.</li>
+<li><acronym title="Web Accessibility Testing and Services" lang="en">WATS</acronym>.ca: <a href="http://wats.ca/resources/accesskeysandkeystrokes/38" lang="en">Accesskeys and Reserved Keystroke Combinations</a>. Lista klawiszy skrótów zarezerwowanych w różnych przeglądarkach i programach udźwiękawiających.</li> 
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_14.html">&lt;&lt; Dzień 14: Dodawanie tytułów do linków</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_16.html">Dzień 16: Bez wymuszania nowych okien &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_15.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 15: Definiowanie klawiszy skrótu</span></p></div>
+</body>
+</html>

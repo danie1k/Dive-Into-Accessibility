@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 13: Używanie prawdziwych linków</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_12.html" title="Dzień 12: Bezpieczne użycie kolorów" />
+<link rel="next" href="day_14.html" title="Dzień 14: Dodawanie tytułów do linków" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_13.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 13: Używanie prawdziwych linków</h2>
+<p class="firstparagraph">Zmorą Sieci są odnośniki "<code>javascript:</code>" - pseudo-linki, które wykonują kawałek kodu Javascript kiedy na nie klikniesz. To jest częsty przypadek na stronach, gdzie takie linki otwierają osobne małe okienko np. do dodawania komentarzy. Dlaczego jest to problemem? Ponieważ <a title="statystyka użycia Javascript wg TheCounter.com, Kwiecień 2003" href="http://www.thecounter.com/stats/2003/April/javas.php">9% użytkowników Internetu nie używa Javascriptu</a> z takich czy innych powodów, w tym również dlatego, że ich przeglądarki po prostu tego nie obsługują. Zatem dla nich takie pseudo-linki nie działają; używaj prawdziwych odnośników.</p>
+<p>Mimo, że problem jest prosty do opisania i łatwy do poprawienia, to z pewnością nie można go bagatelizować. Niektóre omawiane tutaj problemy, jak <a href="day_11.html" title="Dzień 11: Przeskakiwanie menu strony">brak linku przeskakującego menu strony</a>, zmniejszają łatwość obsługi Twojej strony do pewnego stopnia, ale tak naprawdę nadal może być w jakiś sposób odczytana. Natomiast pseudo-linki z "<code>javascript:</code>" powodują, że pewne fragmenty strony są kompletnie niedostępne. Na przykład jeśli masz komentarze ukryte za takim linkiem, to <em>równie dobrze mogłoby ich w ogóle nie być</em>.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_5.html">Marek</a> skorzysta.  <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> nie obsługuje Javascriptu.</li>
+<li><a href="day_2.html">Michał</a> skorzysta.  <a href="http://links.sourceforge.net/">Links</a> nie obsługuje Javascriptu.</li>
+<li><a href="day_4.html">Julia</a> skorzysta.  Mimo, że używa Internet Explorera, to zgodnie z polityką departamentu informatyki w jej firmie obsługa Javascript jest wyłączona na wszystkich stronach, które nie znajdują się na ich liście zaufanych. Twojej strony na tej liście nie ma.</li>
+<li><a href="http://www.google.pl/" lang="en">Google</a> skorzysta.  <span lang="en">Google</span> stara się podążać za odnośnikami aby znaleźć i zaindeksować więcej stron, jednak nie może wejść na stronę za linkiem "<code>javascript:</code>", ponieważ nie wykonuje skryptów podczas indeksowania stron Sieci.</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Większość nowych szablonów w narzędziach do blogowania nie używa pseudo-linków, więc możliwe, że nie musisz nic zmieniać. Sprawdź czy masz w kodzie strony linki z <code>javascript:</code>. Jeżeli nie to wszystko w porządku.</p>
+<p>Jednak starsze szablony <strong lang="en">Movable Type</strong> zawierały taki link:</p>
+<blockquote>
+<p><code>&lt;a href="javascript:OpenComments(&lt;$MTEntryID$&gt;)">Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</code></p>
+</blockquote>
+<p>Jeśli masz taki kod zamień go na następujący:</p>
+<blockquote>
+<p><code>&lt;a href="&lt;$MTCGIPath$&gt;mt-comments.cgi?entry_id=&lt;$MTEntryID$&gt;" onclick="OpenComments(&lt;$MTEntryID$&gt;); return false"&gt;Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</code></p>
+</blockquote>
+<p>W przeglądarkach obsługujących Javascript działanie takiego linku będzie identyczne, ponieważ kod z atrybutu <code>onclick</code> wykona się najpierw, zanim zostanie uwzględniony atrybut <code>href</code>. Więc w tej wersji nadal będzie wywoływana funkcja <code>OpenComments</code>, która otwiera okienko z komentarzami. Jednak przeglądarka nie obsługująca Javascriptu (oraz <span lang="en">Google</span>) zignoruje atrybut <code>onclick</code> i przejdzie do strony wskazanej przez atrybut <code>href</code>, która pokazuje komentarze w tym samym oknie.</p>
+<p>Jeżeli używasz pseudo-linków <code>javascript:</code> z jakiegokolwiek innego powodu, przestań. Po prostu przestań. <!-- Nie przechodzisz przez Start, nie pobierasz 200 zł itd. --> Zastosuj powyższą technikę, tak aby przeglądarki nie obsługujące Javascriptu zawsze miały szansę podążyć za prawdziwym linkiem (czyli opisanym przez <code>href</code>).</p>
+<h3>Zobacz także</h3>
+<ul>
+<li><cite title="Evolt.org" lang="en">Jeff Howden</cite>: <a href="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/" lang="en">Links &amp; JavaScript Living Together in Harmony</a>. Artykuł wyjaśniający technikę wykorzystaną powyżej, czyli o tym jak stworzyć link obsługujący Javascript i równocześnie nieszkodliwy dla przeglądarek bez Javascriptu. (Strona w języku angielskim)</li>
+</ul>
+<h3>Postscriptum</h3>
+<p>Nawet mnie nie prowokuj, żebym zaczął o tych <a href="http://www.dynamicdrive.com/dynamicindex1/index.html">dynamicznych menu w Javascript</a>. Są <span lang="en">cool</span> mniej więcej tak samo jak palenie papierosów. Nie rób takich menu, używaj prawdziwych linków.</p>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_12.html">&lt;&lt; Dzień 12: Bezpieczne użycie kolorów</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_14.html">Dzień 14: Dodawanie tytułów do linków &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_13.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 13: Używanie prawdziwych linków</span></p></div>
+</body>
+</html>

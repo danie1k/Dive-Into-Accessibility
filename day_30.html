@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 30: Tworzenie oświadczenia o dostępności</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_29.html" title="Dzień 29: Przeszukiwanie wszystkiego" />
+<link rel="next" href="conclusion.html" title="Podsumowanie" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_30.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 30: Tworzenie oświadczenia o dostępności</h2>
+<p class="firstparagraph">Po zaimplementowaniu któregokolwiek z przedstawionych tutaj usprawnień na swojej stronie internetowej, utwórz oświadczenie o dostępności (ang. "<span lang="en">accessibility statement</span>"), w którym wymienisz wszystkie cechy Twojej strony związane ze zwiększeniem jej dostępności.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_3.html">Bill</a> skorzysta, ponieważ używa głównie klawiatury do nawigacji po stronie i chętnie skorzystałby z <a href="day_15.html" title="Dzień 15: Definiowanie klawiszy skrótu">klawiszy skrótów</a> gdyby tylko wiedział jakie one są. Niestety Mozilla nie informuje o dostępnych na stronie skrótach, ani nie oznacza ich w żaden sposób. Dlatego musisz sam(a) je wymienić.</li>
+<li>Wielu innych użytkowników skorzysta, ucząc się jak mogą lepiej wykorzystać swoje oprogramowanie. Na przykład <a href="day_4.html">Julia</a> nie wiedziała, że może zmienić domyślną wielkość tekstu w swojej przeglądarce, dopóki ktoś jej nie powiedział jak to zrobić; teraz może łatwiej czytać Twoją stronę (oczywiście pod warunkiem, że używasz <a href="day_26.html" title="Dzień 26: Używanie względnych rozmiarów czcionek">względnych rozmiarów czcionek</a>). Użytkownicy Netscape'a, Mozilli i nowej Opery mogą nie wiedzieć, że po włączeniu paska narzędzi nawigacyjnych witryny będą mogli skorzystać z <a href="day_9.html" title="Wstęp">dodatkowych linków nawigacji</a>.</li>
+<li>Inny twórcy stron internetowych także na tym skorzystają, ponieważ dowiedzą się więcej o zagadnieniach dostępności stron i zobaczą, że jednak komuś się chciało poświęcić na to czas.</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Użytkownicy narzędzi typu <strong>niByLog</strong> czy <strong lang="en">Movable Type</strong> mogą zrobić nową stronę specjalnie dla prezentacji oświadczenia o dostępności. W systemach <strong>Radio</strong> i <strong>Manila</strong>, można stworzyć oświadczenie jako "story", aby miało własny adres <acronym title="Uniform Resource Locator" lang="en">URL</acronym>. Poza tym w każdym narzędziu (a w niektórych przypadkach, np. na <strong>blog.pl</strong>, jest to jedyny sposób) można po prostu dodać nową notkę. Ważne jest żeby zapamiętać adres strony z oświadczeniem, ponieważ będzie jeszcze potrzebny.</p>
+<p>Pierwsza rzecz, która powinna się znaleźć w oświadczeniu o dostępności, to lista wszystkich <a href="day_15.html" title="Dzień 15: Definiowanie klawiszy skrótu">klawiszy skrótów</a> jakie są używane na stronie, ponieważ większość przeglądarek nie informuje o nich użytkownika w żaden sposób. Umieść tam również informację o skrócie do samego oświadczenia (którym będzie <code>accesskey="0"</code>, jak zobaczymy za chwilę).</p>
+<p>Następnie powinny zostać wypisane wszystkie cechy strony związane z dostępnością jakie udało Ci się wprowadzić. Jeżeli Twoja strona posiada tylko niektóre cechy, nie wszystkie wymienione w tym kursie, opisz tylko te, które faktycznie posiada. To zapewne będzie dosyć uświadamiające doświadczenie, jak aktualizacja życiorysu pierwszy raz od czasu podjęcia nowej pracy, kiedy uświadamiasz sobie nagle jak wiele udało Ci się przez ten czas zrobić. A jest tego sporo.</p>
+<p>Możesz również krótko wspomnieć dlaczego wprowadzasz na stronie daną cechę ("dla ułatwienia użycia programów udźwiękawiających", "dla użytkowników przeglądarek tekstowych", "dla użytkowników nie rozróżniających kolorów" itd.). Pamiętaj, że oświadczenie o dostępności będzie czytane nie tylko przez użytkowników z ograniczeniami; powinno mieć zarówno wartość informacyjną (dla tych, którzy bezpośrednio z niego skorzystają) jak i edukacyjną (dla innych twórców stron, aby mogli brać z Ciebie przykład). Ewentualnie, zamiast samodzielnie wyjaśniać poszczególne punkty, możesz zrobić odnośniki do odpowiednich dni w tej książce (lub w wersji oryginalnej) albo po prostu podać link do <a href="index.html" title="W głąb dostępności: 30 dni do bardziej dostępnej strony">strony głównej</a> (lub <a href="http://diveintoaccessibility.org/" title="Dive Into Accessibility: 30 days to a more accessible web site" lang="en"><span lang="pl">strony głównej oryginalnej wersji angielskiej</span></a>).</p>
+<p>Na koniec utwórz na każdej stronie link do tego oświadczenia, np. w ogólnym menu nawigacji albo w stopce strony. Nadaj temu linkowi odpowiedni tytuł i klawisz skrótu <code>accesskey="0"</code>, np. tak:</p>
+<blockquote>
+<p><code>&lt;a href="/accessibility_statement.html" title="cechy dostępności tej strony" accesskey="0"&gt;Oświadczenie o dostępności&lt;/a&gt;</code></p>
+</blockquote>
+<p>Uwaga: System <strong>blog.pl</strong> obsługuje linki definiowane z poziomu programu administracyjnego i wstawiane w szablonie za pomocą makra <code>{linki}</code>. Niestety mechanizm ten nie umożliwia określenia wartości atrybutu <code>accesskey</code>. Dlatego link do oświadczenia o dostępności musi być wykonany "ręcznie" poprzez wstawienie do szablonu kodu podobnego do powyższego.</p>
+<h3>Zobacz także</h3>
+<ul>
+<li><a href="accessibility_statement.html">Oświadczenie o dostępności tej strony</a>.</li>
+<li><a href="http://diveintoaccessibility.org/accessibility_statement.html" lang="en">Accessibility statement for diveintoaccessibility.org</a>. (Strona w języku angielskim)</li>
+<li><a href="http://diveintomark.org/accessibility_statement.html" lang="en">Accessibility statement for diveintomark.org</a>. (Strona w języku angielskim)</li>
+</ul>
+<p>Możesz użyć którejkolwiek z tych stron jako szablonu dla własnego oświadczenia, łacznie ze strukturą, słownictwem i znajdującymi się tam linkami do innych stron.</p>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_29.html">&lt;&lt; Dzień 29: Przeszukiwanie wszystkiego</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="conclusion.html">Podsumowanie &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_30.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 30: Tworzenie oświadczenia o dostępności</span></p></div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 28: Etykietowanie elementów formularza</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_27.html" title="Dzień 27: Używanie prawdziwych nagłówków" />
+<link rel="next" href="day_29.html" title="Dzień 29: Przeszukiwanie wszystkiego" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_28.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 28: Etykietowanie elementów formularza</h2>
+<p class="firstparagraph">Zastanawiałeś się kiedyś dlaczego formularze na stronach internetowych są tak trudne w użyciu? Na przykład, w normalnych aplikacjach z <acronym title="Graphical User Interface" lang="en">GUI</acronym> możesz kliknąć gdziekolwiek na etykiecie przy checkboksie aby go zaznaczyć lub odznaczyć. Jednak w aplikacji działającej w przeglądarce musisz kliknąć dokładnie na tym małym kwadraciku żeby zmienić jego stan. To jest irytujące ale jeszcze nie tragiczne. Niestety dla niewidomych użytkowników sytuacja jest znacznie gorsza. Nawet prosty formularz, np. taki do wysyłania komentarzy na Twoim blogu, może być trudny do używania jeśli nie widzisz go całego na raz. (Omawialiśmy <a href="day_19.html" title="Dzień 19: Używanie prawdziwych nagłówków tabel">podobny problem z tabelami</a>; np. kalendarz jest prosty do użycia jeśli widzisz go w całości, ale bardzo trudny, jeśli widzisz w danej chwili tylko jeden dzień.)</p>
+<p>Istnieją tagi <acronym title="HyperText Markup Language" lang="en">HTML</acronym>, które mogą Ci ułatwić tworzenie formularzy łatwiejszych w użyciu. Omówię jeden z nich - <code>&lt;label&gt;</code>; o innych tagach ważnych dla dostępności formularzy możesz poczytać w sekcji "Zobacz także" na dole tej strony.</p>
+<p>Tag <code>&lt;label&gt;</code> umożliwia połączenie etykiety z dowolnym polem formularza: polem tekstowym, checkboksem, polem wyboru, czymkolwiek. Dzięki temu programy udźwiękawiające mogą powiadomić użytkownika czym jest dane pole formularza poprzez odczytanie jego etykiety. Ponadto, jeżeli użyjesz taga <code>&lt;label&gt;</code> do powiązania checkboksa (<code>&lt;input type="checkbox"&gt;</code>) z tekstem występującym przy nim, to w większości przeglądarek Twój formularz będzie się zachowywał podobnie jak <acronym title="Graphical User Interface" lang="en">GUI</acronym> innych aplikacji: kliknięcie gdziekolwiek na tekście etykiety przełączy stan checkboksa.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_1.html">Jadzia</a> skorzysta.  Kiedy Jadzia przechodzi tabulatorem po kolejnych polach formularza, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> odczytuje nazwę każdego elementu (na podstawie wartości jego atrybutu <code>name</code>), co może, ale nie musi być zrozumiałe. Natomiast jeżeli element formularza jest powiązany z etykietą, <span lang="en">JAWS</span> przeczyta tekst etykiety zamiast nazwy pola. <span lang="en">"Text: name."  (<kbd>TAB</kbd>)  "Text: email address."  (<kbd>TAB</kbd>)  "Text: URL."  (<kbd>TAB</kbd>)  "Text area: comments."</span> I tak dalej.</li>
+<li><a href="day_4.html">Julia</a> skorzysta. Kiedy elementy formularza są połączone z etykietami, Julia może kliknąć gdziekolwiek na tekście przy danej opcji żeby ją włączyć lub wyłączyć. To daje znacznie większy margines błędu przy posługiwaniu się myszką, a przy jej słabym wzroku im większe pole do klikania tym lepiej.</li>
+<li><a href="day_3.html">Bill</a> powinien skorzystać, ale niestety jeszcze nie teraz. Porusza się po stronach głównie za pomocą klawiatury, co oznacza właściwie klawisz <kbd>TAB</kbd>. Kiedy dojdzie tabulatorem do opcji w formularzu, Mozilla powinna pokazać prostokąt wyboru wokół całej etykiety, jednak tego nie robi; po prostu pokazuje prostokąt wokół samego checkboksa. (Inne przeglądarki, np. Internet Explorer, a nawet Netscape 4, robią to poprawnie. Niedobra Mozilla.)</li>
+</ol>
+<h3>Jak to zrobić: blog.pl</h3>
+<p>Niestety, wg stanu na sierpień 2003, <strong>blog.pl</strong> nie umożliwia edycji formularza dodawania komentarzy ani formularza wpisów do księgi gości. Co więcej, zaimplementowane w tym systemie formularze nie posiadają żadnych elementów dostępności - brak jakichkolwiek atrybutów <code>&lt;label&gt;</code>, <code>&lt;fieldset&gt;</code> i <code>&lt;legend&gt;</code>.</p>
+<h3>Jak to zrobić: niByLog</h3>
+<p>W systemie <strong>niByLog</strong> wygląd formularza do wprowadzania komentarzy określa szablon "Formularz nowego komentarza" (lub w wersjach starszych niż 1.7.0 plik <code>plugins/komentator.inc</code>). Właściwie może to być dowolny formularz ustawiający pola o nazwach wymaganych przez mechanizm komentatora niByLoga. Powinien zawierać takie elementy:</p>
+<blockquote>
+<p><code>
+<strong>&lt;label for="com_komentarz"&gt;komentarz:&lt;/label&gt;</strong><br />
+&lt;textarea <strong>id="com_komentarz"</strong> name="com_komentarz" cols="30" rows="6"&gt;&lt;/textarea&gt;<br />
+<br />
+<strong>&lt;label for="com_podpis"&gt;podpis:&lt;/label&gt;</strong><br />
+&lt;input type="text" <strong>id="com_podpis"</strong> name="com_podpis" size="30" /&gt;<br />
+<br />
+&lt;input type="checkbox" <strong>id="com_public"</strong> name="com_public" value="ok" checked /&gt;<br />
+&lt;label for="com_public"&gt;publikuj adresy email i www&lt;/label&gt;<br />
+<br />
+<strong>&lt;label for="com_email"&gt;e-mail:&lt;/label&gt;</strong><br />
+&lt;input type="text" <strong>id="com_email"</strong> name="com_email" size="30" /&gt;<br />
+<br />
+<strong>&lt;label for="com_www"&gt;www:&lt;/label&gt;</strong><br />
+&lt;input type="text" <strong>id="com_www"</strong> name="com_www" size="30" /&gt;<br />
+</code></p>
+</blockquote>
+<h3>Jak to zrobić: <span lang="en">Movable Type</span></h3>
+<p>W <strong lang="en">Movable Type</strong> trzeba poprawić szablon "<span lang="en">Comment Listing Template</span>". Znajdziesz w nim taki fragment:</p>
+<blockquote>
+<p><code>Name:&lt;br /&gt;<br />
+&lt;input name="author" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+Email Address:&lt;br /&gt;<br />
+&lt;input name="email" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+URL:&lt;br /&gt;<br />
+&lt;input name="url" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+Comments:&lt;br /&gt;<br />
+&lt;textarea name="text" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+&lt;input type="checkbox" name="bakecookie" /&gt;Remember info?&lt;br /&gt;&lt;br /&gt;</code></p>
+</blockquote>
+<p>Każda z tych nazw pól powinna być zamieniona na tag <code>&lt;label&gt;</code>. Ponieważ tag <code>&lt;label&gt;</code> wskazuje elementy formularza poprzez ID (nie przez nazwę), trzeba również uzupełnić tagi <code>&lt;input&gt;</code> o atrybut ID. W sumie powinno to wyglądać tak:</p>
+<blockquote>
+<p><code><strong>&lt;label for="author"&gt;Name:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="author"</strong> name="author" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="email"&gt;Email Address:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="email"</strong> name="email" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="url"&gt;URL:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;input <strong>id="url"</strong> name="url" /&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+<strong>&lt;label for="text"&gt;Comments:&lt;/label&gt;</strong>&lt;br /&gt;<br />
+&lt;textarea <strong>id="text"</strong> name="text" rows="10" cols="50"&gt;&lt;/textarea&gt;&lt;br /&gt;&lt;br /&gt;<br />
+<br />
+&lt;input type="checkbox" <strong>id="bakecookie"</strong> name="bakecookie" /&gt;<strong>&lt;label for="bakecookie"&gt;Remember info?&lt;/label&gt;</strong>&lt;br /&gt;&lt;br /&gt;</code></p>
+</blockquote>
+<p>Takie same zmiany zrób w szablonach "<span lang="en">Comment Preview</span>", "<span lang="en">Comment Error</span>" i "<span lang="en">Individual Entry Archive</span>".</p>
+<h3>Jak to zrobić: Greymatter</h3>
+<p>W menu "<span lang="en">Edit Karma &amp; Comments-Related Templates</span>" powinien znajdować się szablon "<span lang="en">{{entrycommentsform}} Posting form</span>" zawierający kod:</p>
+<blockquote>
+<p><code>Name<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommentauthor" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+E-Mail (optional)<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommentemail" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+Homepage (optional)<br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT NAME="newcommenthomepage" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+Comments<br />
+&lt;BR&gt;<br />
+&lt;TEXTAREA NAME="newcommentbody" COLS=35 ROWS=10 WRAP=VIRTUAL&gt;&lt;/TEXTAREA&gt;</code></p>
+</blockquote>
+<p>Trzeba go zamienić na następujący:</p>
+<blockquote>
+<p><code><strong>&lt;label for="newcommentauthor"&gt;Name&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommentauthor"</strong> NAME="newcommentauthor" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommentemail"&gt;E-Mail (optional)&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommentemail"</strong> NAME="newcommentemail" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommenthomepage"&gt;Homepage (optional)&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;INPUT TYPE=TEXT <strong>id="newcommenthomepage"</strong> NAME="newcommenthomepage" SIZE=40&gt;<br />
+&lt;P&gt;<br />
+<strong>&lt;label for="newcommentbody"&gt;Comments&lt;/label&gt;</strong><br />
+&lt;BR&gt;<br />
+&lt;TEXTAREA <strong>id="newcommentbody"</strong> NAME="newcommentbody" COLS=35 ROWS=10 WRAP=VIRTUAL&gt;&lt;/TEXTAREA&gt;</code></p>
+</blockquote>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite title="Web Accessibility In Mind" lang="en">WebAIM</cite>: <a href="http://www.webaim.org/howto/forms" lang="en">How to Create Accessible Forms</a>.  W bardziej złożonych formularzach mogą być wymagane inne tagi związane z dostępnością, takie jak <code>&lt;legend&gt;</code> i <code>&lt;fieldset&gt;</code>. Ten artykuł pokazuje co to za tagi i jak je stosować.</li>
+<li><cite title="World Wide Web Consortium" lang="en">W3C</cite>: <a href="http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.9.1" lang="en">Forms in HTML Documents: The LABEL element</a>. Element LABEL w specyfikacji <acronym title="HyperText Markup Language" lang="en">HTML</acronym>.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_27.html">&lt;&lt; Dzień 27: Używanie prawdziwych nagłówków</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_29.html">Dzień 29: Przeszukiwanie wszystkiego &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_28.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 28: Etykietowanie elementów formularza</span></p></div>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 27: Używanie prawdziwych nagłówków</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_26.html" title="Dzień 26: Używanie względnych rozmiarów czcionek" />
+<link rel="next" href="day_28.html" title="Dzień 28: Etykietowanie elementów formularza" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_27.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 27: Używanie prawdziwych nagłówków</h2>
+<p class="firstparagraph">Pomyśl o swojej stronie jak o strukturze wielopoziomowej podobnej do spisu treści. Najwyższy poziom obejmuje całość i jest zatytułowany tak jak Twoja strona. Na stronie głównej masz wpisy poszczególnych dni, zatem drugi poziom to opisy kolejnych dni, np. "czwartek, 12 czerwca 2003", czy jakoś podobnie. Każdego dnia tworzysz wiele wpisów, które mogą mieć swoje własne tytuły. Jeżeli tak, to jest to trzeci poziom utworzony z tytułów kolejnych wpisów.</p>
+<p>Możesz zatem oznaczyć tę strukturę używając prawdziwych tagów nagłówków kolejnych poziomów, czyli <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>. Programy udźwiękawiające strony internetowe polegają na tych tagach w celu zinterpretowania struktury strony. Twoje strony <em>mają</em> określoną strukturę, ale bez odpowiednich tagów nie można jej poprawnie rozpoznać. Za chwilę zobaczysz jak można użyć stylów <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, żeby nagłówki wyglądały w przeglądarkach graficznych dokładnie tak samo jak to, czego używasz w tej chwili (nawet jeśli to jakieś monstrum oparte na tagach <code>&lt;font&gt;</code>).</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_1.html">Jadzia</a> skorzysta. Jak tylko Jadzia wejdzie na Twoją stronę, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> zapowiada, że strona posiada określoną liczbę linków i nagłówków. Jadzia może nacisnąć <kbd>INSERT+F6</kbd> aby usłyszeć wszystkie nagłówki obecne na stronie albo <kbd>CTRL+INSERT+ENTER</kbd> aby szybko przejść do następnego nagłówka.</li>
+<li><a href="day_2.html">Michał</a> skorzysta.  W przeglądarce <a href="http://www.opera.com/">Opera</a> można nacisnąć klawisz <kbd>S</kbd> aby przeskoczyć do kolejnego nagłówka, albo <kbd>W</kbd> żeby przeskoczyć do poprzedniego.</li>
+<li><a href="http://www.google.pl/" lang="en">Google</a> skorzysta. <span lang="en">Google</span> potrafi docenić dobrze skonstruowaną stronę i punktuje słowa kluczowe wyżej, kiedy znajdują się one w tagach nagłówków. (To kolejny powód aby pisać dobre tytuły wpisów.)</li>
+</ol>
+<h3>Jak to zrobić: blog.pl</h3>
+<ol>
+<li><p>Nagłówek zawierający nazwę Twojego bloga zdefiniuj jako nagłówek pierwszego poziomu. Miejsce umieszczenia nazwy bloga może być różne w zależności od wykorzystywanego zestawu szablonów, jednak zazwyczaj zawiera makro <code>{ksywa}</code>. We wszystkich szablonach definiujących całe strony (strona główna, archiwum, strona z komentarzami i księga gości) umieść nazwę w tagu <code class="sgmltag">&lt;h1&gt;</code>:</p>
+<blockquote>
+<pre><code><strong>&lt;h1&gt;</strong>{ksywa}<strong>&lt;/h1&gt;</strong></code></pre>
+</blockquote>
+</li>
+<li><p>Zdefiniuj tytuły swoich wpisów jako nagłówki drugiego poziomu; w szablonie określającym wygląd pojedynczego wpisu (menu "edytor html, Wpis do bloga") odszukaj kod wstawiający {temat}, np.:</p>
+<blockquote>
+<pre><code>&lt;b&gt;{temat}&lt;/b&gt;&lt;br&gt;</code></pre>
+</blockquote>
+<p>i zamień go na:</p>
+<blockquote>
+<pre><code><strong>&lt;h2&gt;</strong>{temat}<strong>&lt;/h2&gt;</strong></code></pre>
+</blockquote>
+</li>
+<li><p>Kolejne komentarze na stronie z komentarzami do wpisu oraz kolejne wpisy do księgi gości oznacz nagłówkiem trzeciego poziomu. Wystarczy w szablonie definiującym wygląd pojedynczego komentarza (menu "edytor html, Komentarz") oraz w szablonie definiującym wygląd pojedynczego wpisu do księgi (menu "edytor html, Wpis do księgi") zamienić fragment:</p>
+<blockquote>
+<pre><code>&lt;span class="kto"&gt;{autor}&lt;/span&gt; | </code></pre>
+</blockquote>
+<p>na:</p>
+<blockquote><pre><code><strong>&lt;h3 </strong>class="kto"&gt;{autor}<strong>&lt;/h3&gt;</strong></code></pre></blockquote>
+<p>Oczywiście możesz też dodać omawiane przez nas wskazówki dotyczące dostępności tabel, a nawet całkowicie przerobić szablony. Przykładowo, minimalny a równocześnie w pełni funkcjonalny i bezproblemowo dostępny komentarz może być uzyskany za pomocą takiego prostego szablonu:</p>
+<blockquote>
+<pre><code>&lt;h3 class="kto"&gt;{autor}, &lt;a href="mailto:{email}"&gt;{email}&lt;/a&gt;, {data} {czas}&lt;/h3&gt;
+&lt;div class="komentarz"&gt;{tresc}&lt;/div&gt;</code></pre>
+</blockquote>
+<p>Szablon wpisu do księgo gości może wyglądać identycznie lub z wydzieleniem adresu autora wpisu poza nagłówek, np. tak:</p>
+<blockquote>
+<pre><code>&lt;h3 class="kto"&gt;{autor}, {data} {czas}&lt;/h3&gt;
+&lt;div class="kto"&gt;&lt;a href="mailto:{email}"&gt;{email}&lt;/a&gt;, &lt;a href="{url}"&gt;{url}&lt;/a&gt;&lt;/div&gt;
+&lt;div class="msg"&gt;{tresc}&lt;/div&gt;</code></pre>
+</blockquote>
+</li>
+<li><p>Wygląd nagłówków możesz dowolnie dostosować dodając lub modyfikując w arkuszu <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> (menu "edytor html, Arkusz stylów") definicje dla <code>h1</code>, <code>h2</code> i <code>h3</code>. Np. aby tytuły wpisów (teraz nagłówki <code class="sgmltag">&lt;h2&gt;</code>) wyglądały dokładnie tak samo jak wcześniej, gdy były zwykłym tekstem jedynie pogrubionym przez <code class="sgmltag">&lt;b&gt;</code>, wystarczy dopisać:</p>
+<blockquote>
+<pre><code>h2 {
+  font-size: 1em;
+  font-weight: bold;
+}</code></pre>
+</blockquote>
+</li>
+</ol>
+<h3>Jak to zrobić: niByLog</h3>
+<ol>
+<li><p>Nagłówek pierwszego poziomu powinien jak zawsze zawierać nazwę lub tytuł Twojego bloga. W zależności od konstrukcji strony, nazwa ta może być zdefiniowana albo w kodzie <acronym title="HyperText Markup Language" lang="en">HTML</acronym> strony głównej (zawierającej wywołanie skryptu niByLoga), albo w szablonie "Nagłówek bloga". Jeżeli występuje w kodzie strony głównej, to zapewne nazwa jest wpisana na stałe. Natomiast jeżeli w szablonie, to nazwa bloga może być odczytana z konfiguracji niByLoga np. za pomocą kodu:</p>
+<blockquote>
+<pre><code><strong>&lt;h1&gt;</strong>&lt;?php echo $config['cfg_blog_name']; ?&gt;<strong>&lt;/h1&gt;</strong></code></pre>
+</blockquote>
+<p>Niezależnie od tego jaka występuje u Ciebie sytuacja, ważne jest, aby nagłówek bloga znajdował się wewnątrz tagu <code class="sgmltag">&lt;h1&gt;</code>.</p></li>
+<li><p>Jeżeli wykorzystujesz na blogu grupowanie wpisów wg dni, to wyznaczają one kolejny poziom, który trzeba zdefiniować w szablonie "Nagłówek dnia" za pomocą tagu <code class="sgmltag">&lt;h2&gt;</code>, np.:</p>
+<blockquote>
+<pre><code><strong>&lt;h2&gt;</strong>@Data<strong>&lt;/h2&gt;</strong></code></pre>
+</blockquote>
+</li>
+<li><p>Tytuły poszczególnych wpisów bloga to nagłówki poziomu 3. (lub 2. jeśli nie stosujesz grupowania wg dni). W szablonie "Wpis bloga" zdefiniuj je za pomocą następującego kodu:</p>
+<blockquote>
+<pre><code><strong>&lt;h3&gt;</strong>@Tytul<strong>&lt;/h3&gt;</strong></code></pre>
+</blockquote>
+</li>
+<li><p>Na stronie zawierającej komentarze do wybranego wpisu, nagłówek komentarzy występuje na tym samym poziomie co nagłówek dnia, np.:</p>
+<blockquote>
+<pre><code><strong>&lt;h2&gt;</strong>Komentarze gości<strong>&lt;/h2&gt;</strong></code></pre>
+</blockquote>
+<p>Natomiast nagłówki poszczególnych komentarzy odpowiadają poziomem nagłówkom kolejnych wpisów na stronie głównej bloga, więc szablon "Komentarz" może zawierać np.:</p>
+<blockquote>
+<pre><code><strong>&lt;h3&gt;</strong>@Data, @Godzina, @Podpis:<strong>&lt;/h3&gt;</strong></code></pre>
+</blockquote>
+</li>
+</ol>
+<h3>Jak to zrobić: <span lang="en">Movable Type</span></h3>
+<ol>
+<li><p>Zdefiniuj style dla logo Twojej strony. W arkuszu stylów (<code>styles-sites.css</code>) dodaj następujące linie:</p>
+<blockquote>
+<pre><code>h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+/*/*/a{}
+h1 {font-size: 100%}
+/* */</code></pre>
+</blockquote>
+</li>
+<li><p>Zdefiniuj logo (tytuł) swojej strony jako tag <code>&lt;h1&gt;</code>. W czterech głównych szablonach (<span lang="en">Main Index, Category Archive, Date-Based Archive, Individual Entry Archive</span>) poszukaj kodu:</p>
+<blockquote>
+<pre><code>&lt;div id="banner"&gt;
+&lt;$MTBlogName$&gt;&lt;br /&gt;</code></pre>
+</blockquote>
+<p>i zamień go na następujący:</p>
+<blockquote>
+<pre><code>&lt;div id="banner"&gt;
+<strong>&lt;h1&gt;</strong>&lt;$MTBlogName$&gt;<strong>&lt;/h1&gt;</strong></code></pre>
+</blockquote>
+</li>
+<li><p>Nagłówki dat zdefiniuj jako tagi <code>&lt;h2&gt;</code>. Style dla tego tagu masz już zdefiniowane, więc zmieniamy tylko tag. W tych samych 4 głównych szablonach poszukaj:</p>
+<blockquote>
+<pre><code>&lt;div class="date"&gt;
+&lt;$MTEntryDate format="%B %d, %Y"$&gt;
+&lt;/div&gt;</code></pre>
+</blockquote>
+<p>i zamień na:</p>
+<blockquote>
+<pre><code>&lt;<strong>h2</strong> class="date"&gt;
+&lt;$MTEntryDate format="%B %d, %Y"$&gt;
+&lt;/<strong>h2</strong>&gt;</code></pre>
+</blockquote>
+</li>
+<li><p>Tytuły poszczególnych wpisów to kolejny poziom - zdefiniuj je jako <code>&lt;h3&gt;</code> zamieniając w szablonach kod:</p>
+<blockquote>
+<p><code>&lt;span class="title"&gt;&lt;$MTEntryTitle$&gt;&lt;/span&gt;</code></p>
+</blockquote>
+<p>na następujący:</p>
+<blockquote>
+<p><code>&lt;<strong>h3</strong> class="title"&gt;&lt;$MTEntryTitle$&gt;&lt;/<strong>h3</strong>&gt;</code></p>
+</blockquote>
+</li>
+</ol>
+<h3>Jak to zrobić: Radio</h3>
+<ol>
+<li><p>Zacznij od zdefiniowania stylów. Domyślne szablony Radio nie używają żadnych tagów nagłówków, więc style dla nich musimy zdefiniować samodzielnie. (Można to dowolnie dostosować; poniższe przykłady powinny zapewnić wygląd Twojej strony w przeglądarkach graficznych taki sam jak przed zmianami.)</p>
+<p>Najlepiej przeszukaj szablon "<span lang="en">Home Page Template</span>" w poszukiwaniu "<code>h2 {</code>". Jeżeli coś takiego znajdziesz, to usuń (to i tak nie jest nigdzie użyte) i wstaw poniższe:</p>
+<blockquote>
+<p><code>h2 {<br />
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 24px; font-weight: bold<br />
+}</code></p>
+</blockquote>
+</li>
+<li><p>Następnie dodaj poniższe style gdziekolwiek w sekcji <code>&lt;style&gt;</code> w "<span lang="en">Home Page Template</span>":</p>
+<blockquote>
+<pre><code>h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+h1 {font-size: 24px}
+h2 {font-size: 13px}
+/*/*/a{}
+h1 {
+  font-size: large;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: x-large;
+}
+html>body h1 {
+  font-size: x-large;
+}
+h2 {
+  font-size: x-small;
+  voice-family: "\"}\"";
+  voice-family: inherit;
+  font-size: small;
+}
+html>body h2 {
+  font-size: small;
+}
+/* */</code></pre>
+</blockquote>
+<p>Zauważ, że używamy tutaj względnych rozmiarów czcionek dla nagłówków w przeglądarkach, które obsługują je poprawnie, oraz bezwzględnych rozmiarów w przeglądarkach takich jak Netscape 4. Tą technikę już chyba znasz - <a href="day_26.html" title="Dzień 26: Używanie względnych rozmiarów czcionek">to samo robiliśmy wczoraj</a>.</p>
+</li>
+<li><p>Zdefiniuj nagłówek z nazwy Twojej strony. W szablonie "<span lang="en">Home Page Template</span>" poszukaj makra "<code>&lt;%siteName%&gt;</code>" i zamień linię:</p>
+<blockquote>
+<p><code>&lt;font size="+2"&gt;&lt;b&gt;&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:Black; text-decoration:none"&gt;&lt;%siteName%&gt;&lt;/a&gt;&lt;/b&gt;&lt;/font&gt;</code></p>
+</blockquote>
+<p>na następującą:</p>
+<blockquote>
+<p><code><strong>&lt;h1&gt;</strong>&lt;a href="&lt;%radio.macros.weblogUrl ()%&gt;" style="color:Black; text-decoration:none"&gt;&lt;%siteName%&gt;&lt;/a&gt;<strong>&lt;/h1&gt;</strong></code></p>
+</blockquote>
+</li>
+<li><p>Zdefiniuj nagłówek dla dat. W szablonie "<span lang="en">Day Template</span>" poszukaj "<code>&lt;%longDate%&gt;</code>", znajdź linię:</p>
+<blockquote>
+<p><code>&lt;b&gt;&lt;%longDate%&gt;&lt;/b&gt;</code></p>
+</blockquote>
+<p>i zamień ją na:</p>
+<blockquote>
+<p><code><strong>&lt;h2&gt;</strong>&lt;%longDate%&gt;<strong>&lt;/h2&gt;</strong></code></p>
+</blockquote>
+</li>
+</ol>
+<h3>Zobacz także</h3>
+<ul>
+<li><cite>Shirley Kaiser</cite>: <a href="http://brainstormsandraves.com/archives/2002/05/14/dont_fake_your_markup_accessibility_issues_for_css/" lang="en">Don't Fake Your Markup: Accessibility Issues for CSS</a>. (Strona w języku angielskim)</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_26.html">&lt;&lt; Dzień 26: Używanie względnych rozmiarów czcionek</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_28.html">Dzień 28: Etykietowanie elementów formularza &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_27.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 27: Używanie prawdziwych nagłówków</span></p></div>
+</body>
+</html>

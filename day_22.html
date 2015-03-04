@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących" />
+<link rel="next" href="day_23.html" title="Dzień 23: Odpowiedniki tekstowe dla obrazków" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_22.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)</h2>
+<p class="firstparagraph">Załóżmy, ze masz listę linków do innych stron albo innych blogów. Zamiast nudnej czarnej kropki używanej w standardowych listach chcesz mieć fantazyjny obrazek przy każdej pozycji. Najczęściej robi się to wstawiając tag <code class="sgmltag">&lt;img&gt;</code> przed każdą pozycją. To działa jak należy i możesz łatwo zapewnić dostępność takiej listy przez zastosowanie odpowiedniego atrybutu <code>alt</code> dla każdego obrazka.</p>
+<p>Możesz nawet pójść dalej i użyć prawdziwych tagów do budowy list (<code class="sgmltag">&lt;ul&gt;</code> i <code class="sgmltag">&lt;li&gt;</code>), a następnie za pomocą <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> zmienić nudną czarną kropkę na obrazek. Oprócz tego, że jest to "właściwy sposób robienia takich rzeczy" w pewnym sensie akademickim, na którym może, ale nie musi Ci zależeć, taka technika daje pewne dodatkowe korzyści w zakresie dostępności strony.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><p><a href="day_5.html">Marek</a> skorzysta.  <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">Jak widzieliśmy wczoraj</a>, <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a> pokazuje nazwę pliku dla każdego obrazka bez zdefiniowanego atrybutu <code>alt</code>.</p></li>
+<li><p><a href="day_2.html">Michał</a> skorzysta.  <a href="http://links.sourceforge.net/">Links</a> nigdy nie pokazuje obrazków, ale domyślnie <em>nie pokazuje niczego</em> dla obrazków bez tekstu <code>alt</code>.  To było akceptowalne wczoraj, kiedy chcieliśmy <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">zignorować przezroczyste obrazki pozycjonujące</a>, ale dzisiaj chcemy wyraźnie zaznaczyć, że to są elementy listy, więc potrzebujemy mieć nie puste atrybuty <code>alt</code>.</p>
+<p>Również kiedy Michał wyłączy pobieranie grafiki w <a href="http://www.opera.com/">Operze</a>, pokaże ona tekst alternatywny z atrybutu <code>alt</code> zamiast napisu "<span lang="en">Image</span>" informującego o miejscu, w którym powinien być obrazek. Natomiast jeśli zastosujesz sposób zaawansowany opisany poniżej, Opera zachowa się jeszcze lepiej, ponieważ przy wyłączonych obrazkach pokaże standardowe wypunktowanie za pomocą kropki.</p></li>
+<li><p><a href="day_1.html">Jadzia</a> skorzysta.  <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">Jak widzieliśmy wczoraj</a>, <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> odczytuje nazwę pliku każdego obrazka bez zdefiniowanego atrybutu <code>alt</code>. W ten sposób treści linków znikną w masie nic nie znaczących nazw plików. Oto jak Jadzia usłyszy przykład przedstawiony niżej:</p>
+<blockquote>
+<p>fancy dot dot gif link slashdot, fancy dot dot gif link the register, fancy dot dot gif link dive into mark</p>
+</blockquote>
+<p>Dopisanie gwiazdki jako tekstu alternatywnego ogromnie poprawia sytuację. <span lang="en">JAWS</span> zorientuje się, że dany obrazek jest używany do wypunktowania, i w ogóle go przemilczy. Niestety <a href="http://www-3.ibm.com/able/hpr.html" lang="en">Home Page Reader</a> nadal odczytuje gwiazdki dosłownie, więc użytkownicy tego programu usłyszą:</p>
+<blockquote>
+<p>asterisk link slashdot, asterisk link the register, asterisk link dive into mark</p>
+</blockquote>
+<p>Dlatego najlepiej jest używać prawdziwych znaczników list (sposób zaawansowany poniżej). Jeśli cała definicja wyglądu jest zapisana w arkuszu <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, to nic nie zaśmieca kodu strony, więc zarówno <span lang="en">JAWS</span> jak i <span lang="en">Home Page Reader</span> po prostu przeczyta te linki tak, jak powinny być przeczytane - jako listę.  Brzmiałoby to tak:</p>
+<blockquote>
+<p>link slashdot, link the register, link dive into mark</p>
+</blockquote>
+</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<p>Jeżeli masz listę linków wyglądającą np. tak:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://www.slashdot.org/"&gt;Slashdot&lt;/a&gt; &lt;br&gt;<br />
+&lt;img src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://www.theregister.co.uk/"&gt;The Register&lt;/a&gt; &lt;br&gt;<br />
+&lt;img src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://diveintomark.org/"&gt;dive into mark&lt;/a&gt; &lt;br&gt;</code></p>
+</blockquote>
+<p>dodaj atrybut <code>alt</code> do wszystkich obrazków wypunktowania. Najlepiej użyj gwiazdki jako tekstu alternatywnego, tak aby zasymulować wygląd listy przy użyciu prawdziwych tagów <code class="sgmltag">&lt;li&gt;</code>.  (Aby ten tekst nie pokazywał się w przeglądarkach graficznych, można dodać jeszcze pusty atrybut <code>title</code>.)</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img <strong>alt="*" title=""</strong> src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://www.slashdot.org/"&gt;Slashdot&lt;/a&gt; &lt;br&gt;<br />
+&lt;img <strong>alt="*" title=""</strong> src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://www.theregister.co.uk/"&gt;The Register&lt;/a&gt; &lt;br&gt;<br />
+&lt;img <strong>alt="*" title=""</strong> src="/images/fancydot.gif" width="8" height="8"&gt; &lt;a href="http://diveintomark.org/"&gt;dive into mark&lt;/a&gt; &lt;br&gt;</code></p>
+</blockquote>
+<h3>Jak to zrobić: sposób zaawansowany</h3>
+<p>Zaawansowana (i zalecana) technika wykorzystuje <acronym title="Cascading Style Sheets" lang="en">CSS</acronym> dla zdefiniowania obrazka, który będzie użyty do wypunktowania listy:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;style type="text/css"&gt;<br />
+ul.blogroll {<br />
+&nbsp;&nbsp;list-style: url(/images/fancydot.gif) disc;<br />
+}<br />
+&lt;/style&gt;</code></p>
+</blockquote>
+<p>Następnie w kodzie strony (w szablonie) można opisać listę za pomocą właściwych znaczników dla list:</p>
+<blockquote><p><code class="sgmltag">&lt;ul class="blogroll"&gt;<br />
+&lt;li&gt;&lt;a href="http://www.slashdot.org/"&gt;Slashdot&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href="http://www.theregister.co.uk/"&gt;The Register&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href="http://diveintomark.org/"&gt;dive into mark&lt;/a&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;</code></p>
+</blockquote>
+<p>W rezultacie:</p>
+<ul>
+<li>Nowoczesne przeglądarki pokażą listę wypunktowaną za pomocą zdefiniowanego obrazka.</li>
+<li>Przeglądarki z wyłączonym pobieraniem grafiki pokażą listę ze standardowym wypunktowaniem - czarną kropką.</li>
+<li>Netscape 4 zawsze pokaże czarne kropki.</li>
+<li>Przeglądarki tekstowe zawsze ignorują style <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>, zatem pokażą listę w jakiś właściwy dla siebie sposób (zazwyczaj z wypunktowaniem za pomocą gwiazdki).</li>
+</ul>
+<h3>Postscriptum: listy bez wypunktowania</h3>
+<p>Kolejnym częstym sposobem tworzenia list linków jest lista bez żadnych wypunktowań, obrazków czy czegokolwiek, po prostu kolejne linki np.:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;div align="right"&gt;<br />
+&lt;a href="http://www.slashdot.org/"&gt;Slashdot&lt;/a&gt;&lt;br&gt;<br />
+&lt;a href="http://www.theregister.co.uk/"&gt;The Register&lt;/a&gt;&lt;br&gt;<br />
+&lt;a href="http://diveintomark.org/"&gt;dive into mark&lt;/a&gt;&lt;br&gt;<br />
+&lt;/div&gt;</code></p>
+</blockquote>
+<p>Taki sam efekt może być osiągnięty za pomocą prawdziwych znaczników list i <acronym title="Cascading Style Sheets" lang="en">CSS</acronym>:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;style type="text/css"&gt;<br />
+ul.blogroll {<br />
+&nbsp;&nbsp;list-style: none;<br />
+&nbsp;&nbsp;text-align: right;<br />
+}<br />
+&lt;/style&gt;</code></p>
+</blockquote>
+<p>lub, jeśli wolisz wyrównanie do lewej:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;style type="text/css"&gt;<br />
+ul.blogroll {<br />
+&nbsp;&nbsp;list-style: none;<br />
+&nbsp;&nbsp;margin-left: 0;<br />
+&nbsp;&nbsp;padding-left: 0;<br />
+}<br />
+&lt;/style&gt;</code></p>
+</blockquote>
+<p>W obu przypadkach kod <acronym title="HyperText Markup Language" lang="en">HTML</acronym> jest taki sam jak w poprzednim przykładzie:</p>
+<blockquote><p><code class="sgmltag">&lt;ul class="blogroll"&gt;<br />
+&lt;li&gt;&lt;a href="http://www.slashdot.org/"&gt;Slashdot&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href="http://www.theregister.co.uk/"&gt;The Register&lt;/a&gt;&lt;/li&gt;<br />
+&lt;li&gt;&lt;a href="http://diveintomark.org/"&gt;dive into mark&lt;/a&gt;&lt;/li&gt;<br />
+&lt;/ul&gt;</code></p>
+</blockquote>
+<p>Linia "<code>list-style: none</code>" powyżej wyłącza pokazywanie wypunktowania listy w przeglądarkach graficznych. Reguła ta działa we wszystkich przeglądarkach, nawet w Netscape 4.</p>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite>Max Design</cite>: <a href="http://www.maxdesign.com.au/presentation/listutorial/" lang="en">Listutorial: Step by step CSS list tutorial</a>. Tworzenie list z zaawansowanymi stylami %%CSS%% - krok po kroku.</li>
+<li><cite>Max Design</cite>: <a href="http://www.maxdesign.com.au/presentation/listamatic/" lang="en">Listamatic: one list, many options</a>. Przykłady ciekawych list z %%CSS%% zaczerpnięte z różnych stron sieci.</li>
+<li><cite>Tobias Schmidt</cite>: <a href="http://www.royal-ts.de/mtarchives/000805.php" lang="en">Styling lists with CSS</a>.</li>
+<li><cite>W3Schools</cite>: <a href="http://www.w3schools.com/css/css_list.asp" lang="en">CSS List Properties</a>.</li>
+<li><cite>Eric Meyer</cite>: <a href="http://www.meyerweb.com/eric/css/list-indent.html" lang="en">Lists and Indentation</a>.</li>
+<li><cite>Eric B. Bednarz</cite>: <a href="http://devnull.tagsoup.com/list/" lang="en">Manipulating Margin and Padding of Lists With CSS</a>.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_21.html">&lt;&lt; Dzień 21: Ignorowanie obrazków pozycjonujących</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_23.html">Dzień 23: Odpowiedniki tekstowe dla obrazków &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_22.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)</span></p></div>
+</body>
+</html>

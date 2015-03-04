@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl" lang="pl">
+<head><title>W głąb dostępności - Dzień 23: Odpowiedniki tekstowe dla obrazków</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2" />
+<link rel="start" title="Start" href="index.html" />
+<link rel="contents" title="Spis treści" href="table_of_contents.html" />
+<link rel="search" title="Przeszukaj stronę" href="search.html" />
+<link rel="help" title="Cechy dostępności tej strony" href="accessibility_statement.html" />
+<link rel="author" title="Kontakt z autorem" href="feedback.html" />
+<link rel="copyright" title="Warunki użytkowania" href="terms_of_use.html" />
+<link rel="stylesheet" href="css/common.css" type="text/css" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/screen.css" type="text/css" media="projection" />
+<link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/aural.css" type="text/css" media="aural" />
+<link rel="up" title="Spis treści" href="table_of_contents.html" />
+<link rel="first" title="Dzień 1: Jadzia" href="day_1.html" />
+<link rel="last" title="Tłumaczenie" href="translations.html" />
+<link rel="prev" href="day_22.html" title="Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)" />
+<link rel="next" href="day_24.html" title="Dzień 24: Odpowiedniki tekstowe dla map graficznych" />
+</head>
+<body>
+<div id="logo">
+  <div class="inner">
+    <h1 class="title"><a href="index.html" accesskey="1">W głąb dostępności</a></h1>
+    <p>30 dni do bardziej dostępnej strony</p>
+    <a class="skip" href="day_23.html#startnavigation">Przejdź do nawigacji strony</a>
+    <span class="divider">&nbsp;</span>
+  </div>
+</div>
+<p></p><div id="main"><div class="inner">
+<div class="entry">
+<h2 class="entrysubject">Dzień 23: Odpowiedniki tekstowe dla obrazków</h2>
+<p class="firstparagraph">To jest najważniejszy dzień z całej serii, więc proszę o uwagę:</p>
+<blockquote>
+<p>Każdy obrazek na każdej stronie Twojego serwisu powinien mieć odpowiednik tekstowy, tekst alternatywny, określony przez arybut <code>alt</code> w tagu <code class="sgmltag">&lt;img&gt;</code>.</p>
+</blockquote>
+<p>Program udźwiękawiający czyta ten tekst, przeglądarka tekstowa pokazuje go zamiast grafiki, <span lang="en">Google</span> go indeksuje, a przeglądarka graficzna może go pokazać jako podpowiedź czy dodatkowy opis obrazka. Widzieliśmy już jak określić <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">pusty atrybut <code>alt</code> dla obrazków pozycjonujących</a> oraz poznaliśmy kilka sposobów na <a href="day_22.html" title="Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)">tworzenie dostępnych list z wypunktowaniem</a>. Co jeszcze zostało?</p>
+<ul>
+<li>Ikony linków do wpisów</li>
+<li>Ikony "<span lang="en">Powered by</span>"</li>
+<li>Ikony "<span lang="en">Mail-to</span>"</li>
+<li>Różne małe obrazki, które dajesz w treści swoich wpisów, np. emotikony</li>
+<li>Wszelkie inne obrazki jakie umieszczasz na stronie</li>
+</ul>
+<p>Wszystkie one potrzebują odpowiedniego tekstu alternatywnego w atrybucie <code>alt</code>.</p>
+<h3>Kto na tym skorzysta?</h3>
+<ol>
+<li><a href="day_1.html">Jadzia</a>, ponieważ <a href="http://www.freedomscientific.com/fs_products/software_jaws.asp" lang="en">JAWS</a> czyta tekst z atrybutu <code>alt</code>. Jeśli nie podasz tekstu alternatywnego, Jadzia słyszy nazwę pliku obrazka, <a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">co brzmi okropnie</a>.</li>
+<li><a href="day_5.html">Marek</a> skorzysta. <a href="http://www.fdisk.com/doslynx/lynxport.htm">Lynx</a>, jako przeglądarka tekstowa, nie pokazuje żadnej grafiki, tylko w miejsce obrazków wstawia tekst z atrybutu <code>alt</code>. Jeżeli nie ma tekstu <code>alt</code>, Lynx pokazuje nazwę pliku obrazka, co wygląda równie źle jak to co czyta <span lang="en">JAWS</span>.</li>
+<li><a href="day_2.html">Michał</a> skorzysta. <a href="http://links.sourceforge.net/">Links</a>, jako przeglądarka tekstowa, nie pokazuje żadnej grafiki, tylko w miejsce obrazków wstawia tekst z atrybutu <code>alt</code>. Jeżeli nie ma tekstu <code>alt</code>, Links nie pokazuje nic, chyba że obrazek jest linkiem, wtedy pokazuje po prostu "<samp>[IMG]</samp>". Kiedy Michał używa <a href="http://www.opera.com/">Opery</a> i wyłączy pobieranie obrazków, widzi tekst z <code>alt</code> w miejscu, w którym byłaby grafika.</li>
+<li><a href="day_4.html">Julia</a> skorzysta.  Internet Explorer pokazuje tekst <code>alt</code> jako tooltip (chociaż można to zablokować).</li>
+<li><a href="http://www.google.pl/" lang="en">Google</a> indeksuje teksty alternatywne dla obrazków i używa ich nie tylko do znajdywania słów kluczowych podczas normalnego wyszukiwania, ale również podczas <a href="http://images.google.pl/">wyszukiwania grafiki</a>.  (A myślałeś, że niby jak to działa? Przecież <span lang="en">Google</span> nie widzi tej grafiki.)</li>
+</ol>
+<h3>Jak to zrobić?</h3>
+<ul>
+<li><p>Standardowe szablony <strong>blog.pl</strong> na stronie głównej i stronie archiwum zawierają ikonkę "blog.pl". Niestety nie ma ona zdefiniowanego atrybutu <code>alt</code> - należy wiec go uzupełnić:</p>
+<blockquote>
+<p><code class="sgmltag">&lt;img src="http://www.blog.pl/img/blog_ikonka.gif" width="40" height="12" border="0" <strong>alt="blog.pl"</strong>&gt;</code></p>
+</blockquote>
+<p>Jeżeli w użytym przez Ciebie szablonie są jakieś inne grafiki czy ikonki, to też sprawdź, czy mają zdefiniowany sensowny (<a href="day_21.html" title="Dzień 21: Ignorowanie obrazków pozycjonujących">lub pusty w przypadku obrazków pozycjonujących</a>) tekst alternatywny.</p>
+</li>
+<li><p>Domyślne szablony <strong lang="en">Movable Type</strong> nie zawierają obrazków. Jednak jeżeli używasz grafiki "<span lang="en">Powered by Movable Type</span>", upewnij się, że tag <code class="sgmltag">&lt;img&gt;</code> posiada atrybut <code>alt="<span lang="en">Powered by Movable Type</span>"</code>.</p></li>
+<li><p>Domyślny szablon <strong lang="en">Greymatter</strong> zawiera tylko jeden obrazek, generowany przez makro <code>{{gmicon}}</code>. Wstawia ono na stronie tag <code>&lt;img&gt;</code>, który zawiera już odpowiedni atrybut <code>alt</code> - "<span lang="en">Powered by Greymatter</span>".</p></li>
+<li><p><strong>Radio</strong> automatycznie generuje odpowiednie teksty alternatywne dla standardowych ikon:</p>
+<ul>
+<li>kubek XML: <code>alt="<span lang="en">Subscribe to &lt;site name&gt; in Radio UserLand.</span>"</code></li>
+<li>ikona XML: <code>alt="<span lang="en">Click to see the XML version of this web page.</span>"</code></li>
+<li>ikona poczty: <code>alt="<span lang="en">Click here to send an email to the editor of this weblog.</span>"</code></li>
+</ul>
+<p>Jak widać są to teksty w języku angielskim, ale jeśli zechcesz, możesz je przetłumaczyć na polski:</p>
+<ol>
+<li><p>Otwórz właściwą aplikację Radio klikając prawym klawiszem myszy ikonkę Radio w trayu i wybierając "<span lang="en">Open Radio</span>".</p></li>
+<li><p>W menu "<span lang="en">Tools</span>" wybierz "<span lang="en">Developers</span>", "<span lang="en">Jump...</span>" (<kbd>Control+J</kbd>) i przejdź do "radio.macros.xmlCoffeeMug" (bez cudzysłowu).</p></li>
+<li><p>Zlokalizuj linie:</p>
+<blockquote>
+<p><code>local (img = radio.macros.imageref ("/system/images/icons/xmlCoffeeCup.gif", alt:"Subscribe to &quot;" + title + "&quot; in Radio UserLand."))<br />
+return ("&lt;a href=\"" + url + "\" title=\"Click on the XML coffee mug to subscribe to &quot;" + title + "&quot; in Radio UserLand.\"&gt;" + img + "&lt;/a&gt;")</code></p>
+</blockquote>
+<p>i zamień je na:</p>
+<blockquote>
+<p><code>local (img = radio.macros.imageref ("/system/images/icons/xmlCoffeeCup.gif", alt:"Subskrybuj &quot;" + title + "&quot; w Radio UserLand."))<br />
+return ("&lt;a href=\"" + url + "\" title=\"Kliknij na kubek aby zasubskrybować &quot;" + title + "&quot; w Radio UserLand.\"&gt;" + img + "&lt;/a&gt;")</code></p>
+</blockquote>
+<p>Wciśnij klawisz <span lang="en">Compile</span> i zamknij okno.</p> 
+</li>
+<!-- build in macro <%rssLink%> -->
+<li><p>W menu "<span lang="en">Tools</span>" wybierz "<span lang="en">Developers</span>", "<span lang="en">Jump...</span>" (<kbd>Control+J</kbd>) i przejdź do "radio.macros.mailto" (bez cudzysłowu).</p></li>
+<li><p>Zlokalizuj linię:</p>
+<blockquote>
+<p><code>local (tooltip = "Click here to send an email to the editor of this weblog.")</code></p>
+</blockquote>
+<p>i zamień ją na:</p>
+<blockquote>
+<p><code>local (tooltip = "Wyślij e-mail do autora tego bloga.")</code></p>
+</blockquote>
+<p>Wciśnij klawisz "<span lang="en">Compile</span>" i zamknij okno.</p> 
+</li>
+</ol>
+<p>Zmiany odniosą skutek od następnej publikacji strony.</p>
+<p>Natomiast dla pozostałych, niestandardowych obrazków atrybut <code>alt</code> można określić za pomocą menu dostępnego z lokalnej strony bloga. Przejdź do <tt lang="en">Prefs</tt>, następnie <tt lang="en">Customized Images</tt> (w sekcji <tt lang="en">Templates</tt>) i dodaj atrybuty <code>alt</code>:</p>
+<ul>
+<li><span lang="en">Day-level permalink</span>: <code>alt="Link bezpośredni: &lt;%longDate%&gt;"</code>.</li>
+<li><span lang="en">Item-level permalink</span>: <code>alt="Link bezpośredni"</code>.</li>
+<li><span lang="en">Source link icon</span>: <code>alt="źródło"</code>.</li>
+<li><span lang="en">Enclosure link icon</span>: <code>alt="załącznik"</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Oczywiście, niezależnie od stosowanego narzędzia publikacji, jeżeli dodajesz własne obrazki do szablonów to również powinieneś im uzupełnić atrybut <code>alt</code>.</p>
+<p>Oprócz określania tekstu alternatywnego możesz również dodać <code>title=""</code>, co spowoduje, że w przeglądarkach graficznych nie będzie pokazywany tooltip.</p>
+<h3>Przykłady złych tekstów <code>alt</code></h3>
+<ul>
+<li>Dowolny kod <acronym title="HyperText Markup Language" lang="en">HTML</acronym>. Atrybut <code>alt</code> może zawierać tylko czysty tekst, bez innych tagów.</li>
+<li><code>alt="filename.jpg"</code>.  To nic nie daje. Dalej nie wiadomo co prezentuje dana grafika lub jaka jest jej funkcja. Kogo obchodzi jak się nazywa plik?</li>
+<li><code>alt="alt text"</code>.  Wstawiane przez niektóre edytory <acronym title="HyperText Markup Language" lang="en">HTML</acronym> jako przypomnienie, że to należy uzupełnić, i zostawione przez nieuważnych autorów.</li>
+<li><code>alt="Kliknij tutaj!"</code>. To nie daje żadnej użytecznej informacji (chyba, że ten obrazek faktycznie przedstawia tekst "Kliknij tutaj!").</li>
+<li><code>alt="Włącz obrazki!"</code>.  To tak jakby na pytanie niewidomej osoby o to, która jest godzina, odpowiadać "Zobacz sobie!". Pokazywanie obrazków może być wyłączone specjalnie (niska przepustowość łączy Michała), mogą być w ogóle niedostępne (przeglądarka tekstowa Marka), albo nawet mogą wcale nie być wyłączone (program udźwiękawiający Jadzi odczytuje tekst <code>alt</code>, mimo że obrazki są pokazane na ekranie).</li>
+<li><a href="http://ppewww.ph.gla.ac.uk/~flavell/alt/alt-text.html#howlers">Więcej przykładów złych tekstów <code>alt</code></a> (Strona w języku angielskim)</li>
+</ul>
+<h3>Przykłady dobrych tekstów <code>alt</code></h3>
+<ul>
+<li><a href="http://everyonegone.com/blog/archiwum/">Dave</a> na swoim blogu umieścił obrazki służące jako nagłówki zapisane ozdobną czcionką. Każdy z nich ma tekst alternatywny oddający dokładnie treść zawartą na obrazku, np. <code>alt="Dave Daily"</code>, <code>alt="piszę od czasu do czasu"</code>.</li>
+<li><a href="http://bol-istnienia.org/">Szymon Boniecki</a> na swoim blogu umieścił "batony", z których każdy ma poprawny tekst alternatywny oddający zawartość grafiki.</li>
+<li><a href="http://weblog.delacour.net/">Jonathon Delacour</a> w nagłówku strony ma graficzny symbol chiński. Tekst alternatywny opisuje treść obrazka: <code>alt="<span lang="en">Site logo: xin, the Chinese character for heart</span>"</code>.  (Strona w języku angielskim)</li>
+<!--
+<li><a href="http://www.zeldman.com/">Jeffrey Zeldman</a> has a navigation bar of text-as-graphics; on rollover, each graphic puts a little tagline in the status bar with Javascript.  Of course, blind users will miss this, so Zeldman also puts the same text in the <code>alt</code> text of each graphic.  Slick.</li>
+<li><a href="http://www.textism.com/">Dean Allen</a> has a graphic in his page banner that includes the name of the site and a tagline.  His <code>alt</code> text is on the long side and includes a different tagline (a bit confusing), but Dean is cool enough to get away with it.  <code>alt="Textism is an ephemeris focused on the composition, design, and reading of text.  In addition, there will be pie"</code>.  Note: you are probably not cool enough to get away with this.  Keep it simple.</li>
+-->
+</ul>
+<h3>Zobacz także (strony w języku angielskim)</h3>
+<ul>
+<li><cite>A. J. Flavell</cite>: <a href="http://ppewww.ph.gla.ac.uk/~flavell/alt/alt-text.html" lang="en">Use of ALT texts in IMGs</a>. O tworzeniu tekstów alternatywnych - fragment większej całości zatytułowanej <a href="http://ppewww.ph.gla.ac.uk/~flavell/alt/" lang="en">Text-friendly authoring</a>.</li>
+<li><cite>Jukka Korpela</cite>: <a href="http://www.cs.tut.fi/~jkorpela/html/alt.html" lang="en">Simple guidelines on using ALT texts in IMG elements</a>. Poradnik na temat tworzenia dobrych tekstów alternatywnych dla obrazków na stronach <acronym title="World Wide Web"><span lang="pl">WWW</span></acronym>.</li>
+<li><cite>Ian Hickson</cite>: <a href="http://www.hixie.ch/advocacy/alttext" lang="en">Mini-FAQ about the alternate text of images</a>.</li>
+<li><cite lang="en">Watchfire.com</cite>: <a href="http://bobby.watchfire.com/bobby/html/en/gls/g9.html" lang="en">Provide alternative text for all images</a>.</li>
+<li><cite lang="en">All My FAQs Wiki</cite>: <a href="http://www.allmyfaqs.com/cgi-bin/wiki.pl?ALT_attribute" lang="en">ALT attribute</a>.</li>
+<li><cite><acronym title="Web Accessibility In Mind" lang="en">WebAIM</acronym></cite>: <a href="http://www.webaim.org/howto/graphics/" lang="en">How to Create Accessible Graphics</a>. Artykuł na temat tworzenia dostępnej grafiki dla stron internetowych.</li>
+<li><cite lang="de">Martin Schrode</cite>: <a href="http://www.schrode.net/design/alttext.html" lang="en">Good web design: Accessibility -- Use the alt tag</a>. O wykorzystaniu tekstów alternatywnych w reklamach na stronach internetowych.</li>
+<li><cite lang="en">Section 508 Federal Accessibility Guidelines</cite>: <a href="http://www.access-board.gov/sec508/guide/1194.22.htm#(a)" lang="en">What is meant by a text equivalent?</a> Tekst alternatywny w wytycznych <span lang="en"><acronym title="United States" lang="en">U.S.</acronym> Federal Government Section 508</span>.</li>
+</ul>
+<span class="divider">&nbsp;</span></div><div class="pageturn"><div class="inner"><a href="day_22.html">&lt;&lt; Dzień 22: Używanie prawdziwych list (albo dobrze udawanych)</a> | <a href="table_of_contents.html">Spis treści</a> | <a href="day_24.html">Dzień 24: Odpowiedniki tekstowe dla map graficznych &gt;&gt;</a><span class="divider">&nbsp;</span></div></div></div></div><div id="menu">
+<a class="skip" name="startnavigation" id="startnavigation"></a>
+
+<form id="searchform" method="get" action="http://mimas.ceti.pl/dia/search.html">
+<p id="searchlabel"><label for="search">Przeszukaj treść:</label></p>
+<p id="searchinput"><input type="text" size="18" name="search" id="search" value=" " /></p>
+<p id="searchsubmit"><input type="submit" value="Szukaj" /></p>
+</form>
+
+<div class="menusection">
+<div class="inner">
+<h2 class="invisibletitle">Nawigacja strony</h2>
+<a class="skip" href="day_23.html#endinternal">Przeskocz linki nawigacji strony</a>
+<ul>
+<li><a title="cechy dostępności tej strony" href="accessibility_statement.html" accesskey="0">Oświadczenie o dostępności</a></li>
+<li><a href="http://mimas.ceti.pl/dia/search.html" accesskey="4">Szukanie zaawansowane</a></li>
+<li><a href="table_of_contents.html" accesskey="3">Spis treści</a></li>
+<li><a href="by_person.html">Wskazówki wg osoby</a></li>
+<li><a href="by_disability.html">Wskazówki wg ograniczenia</a></li>
+<li><a href="by_design_principle.html">Wskazówki wg zasady</a></li>
+<li><a href="by_web_browser.html">Wskazówki wg przeglądarki</a></li>
+<li><a href="by_publishing_tool.html">Wskazówki wg narzędzia</a></li>
+<li><a href="feedback.html" accesskey="9">Kontakt z autorem</a></li>
+<li><a href="terms_of_use.html" accesskey="8">Warunki użytkowania</a></li>
+</ul>
+<a class="skip" id="endinternal"></a>
+</div>
+</div>
+
+<div id="footer"><div class="inner">
+
+<address><span lang="en">Copyright</span> &copy; 2002 Mark Pilgrim</address>
+<address>Wersja polska <span lang="en">Copyright</span> &copy; 2003 Michał Świątkiewicz</address>
+
+</div></div>
+
+</div>
+<div id="navigation"><p class="breadcrumb">Jesteś tutaj: <a href="index.html">Początek</a> > <a href="table_of_contents.html">Spis treści</a> > <span class="currentpage">Dzień 23: Odpowiedniki tekstowe dla obrazków</span></p></div>
+</body>
+</html>
